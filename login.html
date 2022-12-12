@@ -66,32 +66,46 @@
                                 <!-- To make this form functional, sign up at-->
                                 <!-- https://startbootstrap.com/solution/contact-forms-->
                                 <!-- to get an API token!-->
-                                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                                <form id="loginForm" data-sb-form-api-token="API_TOKEN">
                                     <!-- Name input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                        <label for="name">Full name</label>
-                                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                        <!-- <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                        <label for="name">帳號</label> -->
+                                        <!-- <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>  -->
                                     </div>
                                     <!-- Email address input-->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                        <label for="email">Email address</label>
+                                        <label for="email">帳號</label>
                                         <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                         <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                                     </div>
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                        <label for="phone">Phone number</label>
-                                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                        <input type="password" class="form-control" id="pwd" data-sb-validations="required" />
+                                        <label for="phone">密碼</label>
+                                        <a class="btn btn-secondary" id = "pwdtag">顯示密碼</a>
+                                        
+                                        <!-- <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div> -->
+                                        <script>
+                                            var p = document.getElementById("pwd");
+                                               
+                                            document.getElementById("pwdtag").addEventListener("click",function(){
+                                                if (p.type == "password"){
+                                                    p.type = "text";
+                                                }
+                                                else{
+                                                    p.type = "password";
+                                                }
+                                            });
+                                        </script>
                                     </div>
                                     <!-- Message input-->
-                                    <div class="form-floating mb-3">
+                                    <!-- <div class="form-floating mb-3">
                                         <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                                         <label for="message">Message</label>
                                         <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                                    </div>
+                                    </div> -->
                                     <!-- Submit success message-->
                                     <!---->
                                     <!-- This is what your users will see when the form-->
@@ -116,7 +130,7 @@
                         </div>
                     </div>
                     <!-- Contact cards-->
-                    <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
+                    <!-- <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
                         <div class="col">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-chat-dots"></i></div>
                             <div class="h5 mb-2">Chat with us</div>
@@ -137,7 +151,7 @@
                             <div class="h5">Call us</div>
                             <p class="text-muted mb-0">Call us during normal business hours at (555) 892-9403.</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </section>
         </main>
@@ -157,14 +171,14 @@
             </div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <!-- <script src="js/scripts.js"></script> -->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
         <!-- jQuery -->
     <script
         src="https://code.jquery.com/jquery-3.6.1.min.js"
