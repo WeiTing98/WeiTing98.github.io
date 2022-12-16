@@ -63,7 +63,7 @@
                                     <!-- Email address input-->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="username" type="text" placeholder="帳號" required/>
-                                        <label for="username">帳號</label>
+                                        <label for="username">帳號(學號)</label>
                                         <!-- <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                         <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> -->
                                     </div>
@@ -89,6 +89,19 @@
                                             });
                                         </script>
                                     </div>
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="email" type="text" placeholder="email" required/>
+                                        <label for="email">E-mail</label>
+                                    </div>
+                                    
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="name" type="text" placeholder="姓名" required/>
+                                        <label for="name">姓名</label>
+                                    </div>
+                                    
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="phone" type="text" placeholder="電話" required/>
+                                        <label for="email">電話</label>
                                     <!-- Message input-->
                                     <!-- <div class="form-floating mb-3">
                                         <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
