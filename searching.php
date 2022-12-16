@@ -20,14 +20,14 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.html">CCU 高鐵接駁車票預約系統</a>
+                    <a class="navbar-brand" href="index.php">CCU 高鐵接駁車票預約系統</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
-                            <li class="nav-item"><a class="nav-link" href="searching.html">查詢</a></li>
-                            <li class="nav-item"><a class="nav-link" href="login.html">登入</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ticket.html">訂票</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
+                        <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li>
                             <!-- <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
@@ -63,7 +63,7 @@
                                 </div>
                                 <!-- <p class="lead fw-normal text-muted mb-4">Start Bootstrap was built on the idea that quality, functional website templates and themes should be available to everyone. Use our open source, free products, or support us by purchasing one of our premium products or services.</p> -->
                                 <input class="btn  " type="checkbox" id="s3">仍有空位<br>
-                                <a class="btn btn-primary btn-lg" href="timetable.html" >查詢</a>
+                                <a class="btn btn-primary btn-lg" href="timetable.php" >查詢</a>
                                 <!-- this is for checking -->
                                 <!-- <script>document.getElementById("cc").addEventListener("click",function(){
                                     console.log(document.getElementById("FromDate").value);
