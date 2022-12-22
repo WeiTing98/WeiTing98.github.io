@@ -54,7 +54,7 @@
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">
                             <div class="feature bg-gradient text-white rounded-3 mb-3"><img class="img-fluid" src="assets/user.png"></div>
-                            <h1 class="fw-bolder">登入</h1>
+                            <h1 class="fw-bolder">註冊</h1>
                             <!-- <p class="lead fw-normal text-muted mb-0">We'd love to hear from you</p> -->
                         </div>
                         <div class="row gx-5 justify-content-center">
@@ -102,6 +102,7 @@
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="phone" type="text" placeholder="電話" required/>
                                         <label for="email">電話</label>
+                                    </div>
                                     <!-- Message input-->
                                     <!-- <div class="form-floating mb-3">
                                         <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
@@ -125,7 +126,7 @@
                                     <!-- an error submitting the form-->
                                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                     <!-- Submit Button-->
-                                    <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">登入</button></div>
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">註冊</button></div>
                                 </form>
                             </div>
                         </div>
@@ -162,7 +163,7 @@
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2022</div></div>
                     <div class="col-auto">
-                        <a class="link-light small" href="#!">Privacy</a>
+                        <a class="link-light small" href="">Privacy</a>
                         <span class="text-white mx-1">&middot;</span>
                         <a class="link-light small" href="#!">Terms</a>
                         <span class="text-white mx-1">&middot;</span>
