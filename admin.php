@@ -75,11 +75,11 @@
                                 <div class="card-body p-5">
                                     <!-- <div class="small text-uppercase fw-bold text-muted">班次3</div> -->
                                     <div class="mb-3">
-                                        <span class="display-7 fw-normal">公告</span>
+                                        <span class="display-7 fw-normal">公告系統</span>
                                         <!-- <span class="text-muted">可預訂</span> -->
                                     </div>
                                     
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="">Go</a></div>
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="announce.php">Go</a></div>
                                 </div>
                             </div>
                         </div>
