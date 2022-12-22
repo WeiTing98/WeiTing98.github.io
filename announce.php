@@ -1,3 +1,6 @@
+<?php
+    require_once 'dbconnection.php'
+?>
 <!DOCTYPE html>
 <html lang="zh-TW">
     <head>
@@ -28,21 +31,6 @@
                             <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
                             <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
                             <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li>
-                            <!-- <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
-                                    <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                                </ul>
-                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -53,62 +41,23 @@
                     <!-- Contact form-->
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">
-                            <div class="feature bg-gradient text-white rounded-3 mb-3"><img class="img-fluid" src="assets/user.png"></div>
-                            <h1 class="fw-bolder">註冊</h1>
+                            <!-- <div class="feature bg-gradient text-white rounded-3 mb-3"><img class="img-fluid" src="assets/user.png"></div> -->
+                            <h1 class="fw-bolder">編輯公佈欄</h1>
                             <!-- <p class="lead fw-normal text-muted mb-0">We'd love to hear from you</p> -->
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
-                                <form id="loginForm" action="usermanage.php">
-                                    <!-- Email address input-->
+                                <form id="announceForm" action="post.php">
+                                    <!-- title -->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="username" type="text" placeholder="帳號" required/>
-                                        <label for="username">帳號(學號)</label>
-                                        <!-- <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> -->
-                                    </div>
-                                    <!-- Phone number input-->
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="pwd" placeholder="密碼" required />
-                                        <label for="pwd">密碼</label>
-                                        <a class="btn btn-secondary" id = "pwdtag">顯示密碼</a>
-                                        
-                                        <!-- <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div> -->
-                                        <script>
-                                            var p = document.getElementById("pwd");
-                                            
-                                            document.getElementById("pwdtag").addEventListener("click",function(){
-                                                if (p.type == "password"){
-                                                    p.type = "text";
-                                                    this.innerText = "隱藏密碼";
-                                                }
-                                                else{
-                                                    p.type = "password";
-                                                    this.innerText = "顯示密碼";
-                                                }
-                                            });
-                                        </script>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="email" type="text" placeholder="email" required/>
-                                        <label for="email">E-mail</label>
-                                    </div>
-                                    
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="name" type="text" placeholder="姓名" required/>
-                                        <label for="name">姓名</label>
-                                    </div>
-                                    
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="phone" type="text" placeholder="電話" required/>
-                                        <label for="email">電話</label>
+                                        <input class="form-control" id="title" type="text" placeholder="標題" required/>
+                                        <label for="title">標題</label>
                                     </div>
                                     <!-- Message input-->
-                                    <!-- <div class="form-floating mb-3">
-                                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                        <label for="message">Message</label>
-                                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                                    </div> -->
+                                    <div class="form-floating mb-3">
+                                        <textarea class="form-control" id="message" type="text" placeholder="輸入公告內容" style="height: 10rem" required></textarea>
+                                        <label for="message">內容</label>
+                                    </div>
                                     <!-- Submit success message-->
                                     <!---->
                                     <!-- This is what your users will see when the form-->
@@ -124,9 +73,11 @@
                                     <!---->
                                     <!-- This is what your users will see when there is-->
                                     <!-- an error submitting the form-->
-                                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                                    <!-- <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div> -->
                                     <!-- Submit Button-->
-                                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">註冊</button></div>
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">發布</button></div>
+                                        </br>
+                                    <!-- <div class="d-grid justify-content-center"  ><a href="register.php">註冊</a></div> -->
                                 </form>
                             </div>
                         </div>
@@ -163,7 +114,7 @@
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2022</div></div>
                     <div class="col-auto">
-                        <a class="link-light small" href="">Privacy</a>
+                        <a class="link-light small" href="#!">Privacy</a>
                         <span class="text-white mx-1">&middot;</span>
                         <a class="link-light small" href="#!">Terms</a>
                         <span class="text-white mx-1">&middot;</span>

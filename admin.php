@@ -26,21 +26,6 @@
                         <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
                         <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
-                                    <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                                </ul>
-                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -59,43 +44,9 @@
                                 <div class="card-body p-5">
                                     <!-- <div class="small text-uppercase fw-bold text-muted">班次1</div> -->
                                     <div class="mb-3">
-                                        <span class="display-7 fw-bold">phpMyAdmin</span>
+                                        <span class="display-7 fw-normal">phpMyAdmin</span>
                                         <!-- <span class="text-muted">Go</span> -->
                                     </div>
-                                    <!-- <ul class="list-unstyled mb-4">
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            <strong>1 users</strong>
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            5GB storage
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Unlimited public projects
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Community access
-                                        </li>
-                                        <li class="mb-2 text-muted">
-                                            <i class="bi bi-x"></i>
-                                            Unlimited private projects
-                                        </li>
-                                        <li class="mb-2 text-muted">
-                                            <i class="bi bi-x"></i>
-                                            Dedicated support
-                                        </li>
-                                        <li class="mb-2 text-muted">
-                                            <i class="bi bi-x"></i>
-                                            Free linked domain
-                                        </li>
-                                        <li class="text-muted">
-                                            <i class="bi bi-x"></i>
-                                            Monthly status reports
-                                        </li>
-                                    </ul> -->
                                     <div class="d-grid"><a class="btn btn-outline-primary" href="../../phpmyadmin">Go</a></div>
                                 </div>
                             </div>
@@ -109,44 +60,11 @@
                                         班次2
                                     </div> -->
                                     <div class="mb-3">
-                                        <span class="display-7 fw-bold">修改使用者資料</span>
+                                        <span class="display-7 fw-normal">修改使用者資料</span>
                                         <!-- <span class="text-muted">額滿</span> -->
                                     </div>
-                                    <!-- <ul class="list-unstyled mb-4">
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            <strong>5 users</strong>
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            5GB storage
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Unlimited public projects
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Community access
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Unlimited private projects
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Dedicated support
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Free linked domain
-                                        </li>
-                                        <li class="text-muted">
-                                            <i class="bi bi-x"></i>
-                                            Monthly status reports
-                                        </li>
-                                    </ul> -->
-                                    <div class="d-grid"><button class="btn btn-primary" href="#!">Go</button>
+                                
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="">Go</a> <!-- btn-primary 為實心色-->
                                        </div>
                                 </div>
                             </div>
@@ -157,45 +75,11 @@
                                 <div class="card-body p-5">
                                     <!-- <div class="small text-uppercase fw-bold text-muted">班次3</div> -->
                                     <div class="mb-3">
-                                        <span class="display-7 fw-bold">還沒想到</span>
+                                        <span class="display-7 fw-normal">公告</span>
                                         <!-- <span class="text-muted">可預訂</span> -->
                                     </div>
-                                    <!-- <ul class="list-unstyled mb-4">
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            <strong>Unlimited users</strong>
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            5GB storage
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Unlimited public projects
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Community access
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Unlimited private projects
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Dedicated support
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            <strong>Unlimited</strong>
-                                            linked domains
-                                        </li>
-                                        <li class="text-muted">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Monthly status reports
-                                        </li>
-                                    </ul> -->
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Go</a></div>
+                                    
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="">Go</a></div>
                                 </div>
                             </div>
                         </div>
@@ -219,7 +103,7 @@
             </div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>

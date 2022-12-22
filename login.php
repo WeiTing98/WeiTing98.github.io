@@ -110,9 +110,9 @@
                                     <!---->
                                     <!-- This is what your users will see when there is-->
                                     <!-- an error submitting the form-->
-                                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                                    <!-- <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div> -->
                                     <!-- Submit Button-->
-                                    <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">登入</button></div>
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg " id="submitButton" type="submit">登入</button></div>
                                         </br>
                                     <div class="d-grid justify-content-center"  ><a href="register.php">註冊</a></div>
                                 </form>
