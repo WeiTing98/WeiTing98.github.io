@@ -62,8 +62,8 @@
 
                                 </div>
                                 <!-- <p class="lead fw-normal text-muted mb-4">Start Bootstrap was built on the idea that quality, functional website templates and themes should be available to everyone. Use our open source, free products, or support us by purchasing one of our premium products or services.</p> -->
-                                <input class="btn  " type="checkbox" id="s3">仍有空位<br>
-                                <a class="btn btn-primary btn-lg" href="timetable.php" >查詢</a>
+                                <input class="btn" type="checkbox" id="s3">仍有空位<br>
+                                <a class="btn btn-primary btn-lg" id = 'summitBtn' >查詢</a>
                                 <!-- this is for checking -->
                                 <!-- <script>document.getElementById("cc").addEventListener("click",function(){
                                     console.log(document.getElementById("FromDate").value);
@@ -190,6 +190,17 @@
                 return date;
             }
         });
+
+        // $('#summitBtn').on('click',function(){
+        //     sendForm();
+        // });
+
+        // function sendForm(){
+            
+        // }
+
+
+
     </script>
     </body>
 </html>
