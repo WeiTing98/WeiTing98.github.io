@@ -60,8 +60,7 @@
                 <div class="container px-5">
                     <!-- Contact form-->
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
-                        <div class="text-center mb-5">
-                           
+                        <div class="text-center mb-5">                           
                             <h1 class="fw-bolder">發布新公告</h1>
                         </div>
                         <div class="row gx-5 justify-content-center">

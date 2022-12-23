@@ -80,7 +80,7 @@
                                     $index++;
                                 }
                                 ?>
-                                <span><a class ="fs-5" id='more' >Show More</a></span>
+                                <!-- <span><a class ="fs-5" id='more' >Show More</a></span> -->
                                 </div>
                             </div>
                         </div>
