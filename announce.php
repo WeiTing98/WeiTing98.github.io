@@ -53,10 +53,9 @@
                                 
                                 foreach($item as $i){
                                     echo '<span class="fs-2 ">';echo $i['title'];echo' </span>';
-                                    echo '<a href="update.php" id="'.$i['index'].'">編輯</a>';
+                                    echo '<a href="edit.php?id='.$i['index'].'">編輯</a>';
                                     echo '<div class="d-flex align-items-center justify-content-center fs-5">';
                                     echo '<p>'.$i['content'].'</p>'.'</br>'.'</div>';
-                                    // echo '<div class="fw-normal justify-content-sm-end">';
                                     echo '<span class="fw-normal fs-6 float-end">發布：'.$i['author'].'</span>';
                                     echo '<hr size="5px" width="100%">';
                                     

@@ -1,7 +1,19 @@
 <?php
     require_once 'dbconnection.php';
+    $id = 0;
+    if(isset($_GET['id'])){
+        $id = intval($_GET['id']);
+    }
 
-   
+    $item = [];
+    if($id > 0){
+        $SQL = "SELECT * FROM `announcement` WHERE index = :id";
+        $data = $pdo->prepare($SQL);
+        $data->bindParam(':id',$id);
+        $data->execute();
+        $item = $data->fetch();
+        
+    }
 
     $title = $_GET['title'];
     $content = $_GET['content'];
@@ -49,7 +61,7 @@
                     <!-- Contact form-->
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">
-                            
+                           
                             <h1 class="fw-bolder">發布新公告</h1>
                         </div>
                         <div class="row gx-5 justify-content-center">
