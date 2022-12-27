@@ -7,7 +7,7 @@
 
     $item = [];
     if($id > 0){
-        $SQL = "SELECT * FROM `announcement` WHERE index = :id";
+        $SQL = "SELECT * FROM `announcement` WHERE `index` = :id";
         $data = $pdo->prepare($SQL);
         $data->bindParam(':id',$id);
         $data->execute();
@@ -15,10 +15,6 @@
         
     }
 
-    $title = $_GET['title'];
-    $content = $_GET['content'];
-    $author = $_GET['author'];
-    $id = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -61,20 +57,22 @@
                     <!-- Contact form-->
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">                           
-                            <h1 class="fw-bolder">發布新公告</h1>
+                            <h1 class="fw-bolder">編輯公告內容</h1>
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
                                 <form id="announceForm" action="post.php">
                                     <!-- title -->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="title" type="text" placeholder="標題" required/>
+                                        <input class="form-control" id="title" type="text" placeholder="標題" value="<?php echo isset($item) ? $item['title'] : ''; ?>"required/>
                                         <label for="title">標題</label>
                                     </div>
                                     <!-- Message input-->
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" id="message" type="text" placeholder="輸入公告內容" style="height: 10rem" required></textarea>
-                                        <label for="message">內容</label>
+                                        <textarea class="form-control" id="message" type="text" placeholder="輸入公告內容" style="height: 10rem"  required>
+                                            <?php echo isset($item) ? $item['content'] : ''; ?>
+                                        </textarea>
+                                        <label for="message">內容</label> 
                                     </div>
                                     <!-- Submit success message-->
                                     <!---->
@@ -142,7 +140,7 @@
             </div>
         </footer>
         <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <!-- <script src="js/scripts.js"></script> -->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
