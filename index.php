@@ -75,11 +75,15 @@
                                     echo '<div class="d-flex align-items-center justify-content-center fs-5">';
                                     echo '<p>'.$i['content'].'</p>'.'</br>'.'</div>';
                                     // echo '<div class="fw-normal justify-content-sm-end">';
+                                    if(!is_null($i['img'] )){
+                                        echo '<figure class="mb-4"><img class="img-fluid rounded" src="' .$i['img']. '" /></figure>';
+                                    }
                                     echo '<span class="fw-normal fs-6 float-end">發布：'.$i['author'].'</span>';
                                     echo '<hr size="5px" width="100%">';
                                     $index++;
                                 }
                                 ?>
+                                <!-- <figure class="mb-4"><img class="img-fluid rounded" src="" alt="..." /></figure> -->
                                 <!-- <span><a class ="fs-5" id='more' >Show More</a></span> -->
                                 </div>
                             </div>
