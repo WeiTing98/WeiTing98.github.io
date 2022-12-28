@@ -69,9 +69,9 @@
                                     </div>
                                     <!-- Message input-->
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" id="message" type="text" placeholder="輸入公告內容" style="height: 10rem"  required>
-                                            <?php echo isset($item) ? $item['content'] : ''; ?>
-                                        </textarea>
+                                        <textarea class="form-control" id="message" type="text" placeholder="輸入公告內容" style="height: 10rem"  required><?php echo $item['content']; ?></textarea>
+                                            
+                                        
                                         <label for="message">內容</label> 
                                     </div>
                                     <!-- Submit success message-->
@@ -94,19 +94,13 @@
                                     <!-- <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">發布</button></div>
                                         </br> -->
                                     <!-- <div class="d-grid justify-content-center"  ><a href="register.php">註冊</a></div> -->
-                                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">上傳</button></div>
+                                    <div class="d-inline-block align-items-end float-end"><button class="btn btn-secondary btn-lg" id="cancelButton" type="button">取消</button><button class="btn btn-primary btn-lg" id="submitButton" type="submit">上傳</button></div>
                                     
                                 </form>
-                                <div class="d-grid"><button class="btn btn-primary btn-lg" id="cancelButton" type="button">取消</button></div>
                             </div>
                         </div>
                     </div>
-                    <script>
-                        $( "#cancelButton" ).click(function(){
-                            alert("sssssss");
-                            history.back();
-                        });
-                    </script>
+                    
                     <!-- Contact cards-->
                     <!-- <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
                         <div class="col">
@@ -164,5 +158,11 @@
         crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" ></script>
+    <script>
+                        $( "#cancelButton" ).click(function(){
+                            alert("系統不會儲存您所修改的資料");
+                            history.back();
+                        });
+                    </script>
     </body>
 </html>

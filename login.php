@@ -69,9 +69,12 @@
                                     </div>
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="pwd" placeholder="密碼" required />
+                                        <input type="password" class="form-control"  id="pwd" placeholder="密碼" required />
+                                        <button class="btn btn-outline-secondary" id = "pwdtag">顯示密碼</button>
                                         <label for="pwd">密碼</label>
-                                        <a class="btn btn-secondary" id = "pwdtag">顯示密碼</a>
+                                    </div>
+                                        
+                                        
                                         
                                         <!-- <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div> -->
                                         <script>
@@ -88,7 +91,7 @@
                                                 }
                                             });
                                         </script>
-                                    </div>
+                                    
                                     <!-- Message input-->
                                     <!-- <div class="form-floating mb-3">
                                         <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
