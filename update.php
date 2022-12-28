@@ -82,8 +82,8 @@
                                     <!-- an error submitting the form-->
                                     <!-- <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div> -->
                                     <!-- Submit Button-->
-                                    <!-- <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">發布</button></div>
-                                        </br> -->
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">上傳</button></div>
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="cancelButton" type="submit">取消</button></div>
                                     <!-- <div class="d-grid justify-content-center"  ><a href="register.php">註冊</a></div> -->
                                 </form>
                             </div>

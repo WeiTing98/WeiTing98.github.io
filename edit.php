@@ -94,10 +94,19 @@
                                     <!-- <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">發布</button></div>
                                         </br> -->
                                     <!-- <div class="d-grid justify-content-center"  ><a href="register.php">註冊</a></div> -->
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">上傳</button></div>
+                                    
                                 </form>
+                                <div class="d-grid"><button class="btn btn-primary btn-lg" id="cancelButton" type="button">取消</button></div>
                             </div>
                         </div>
                     </div>
+                    <script>
+                        $( "#cancelButton" ).click(function(){
+                            alert("sssssss");
+                            history.back();
+                        });
+                    </script>
                     <!-- Contact cards-->
                     <!-- <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
                         <div class="col">
