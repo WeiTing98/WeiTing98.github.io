@@ -27,7 +27,7 @@
                             <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                             <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
                             <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                             <!-- <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
@@ -70,28 +70,14 @@
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
                                         <input type="password" class="form-control"  id="pwd" placeholder="密碼" required />
-                                        <button class="btn btn-outline-secondary" id = "pwdtag">顯示密碼</button>
+                                        <button class="btn btn-outline-secondary" type ="button" id = "pwdtag">顯示密碼</button>
                                         <label for="pwd">密碼</label>
                                     </div>
                                         
                                         
                                         
                                         <!-- <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div> -->
-                                        <script>
-                                            var p = document.getElementById("pwd");
-                                            
-                                            document.getElementById("pwdtag").addEventListener("click",function(){
-                                                if (p.type == "password"){
-                                                    p.type = "text";
-                                                    this.innerText = "隱藏密碼";
-                                                }
-                                                else{
-                                                    p.type = "password";
-                                                    this.innerText = "顯示密碼";
-                                                }
-                                            });
-                                        </script>
-                                    
+                                        
                                     <!-- Message input-->
                                     <!-- <div class="form-floating mb-3">
                                         <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
@@ -179,5 +165,22 @@
         crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" ></script>
+    <script>
+        var p = document.getElementById("pwd");
+        
+        document.getElementById("pwdtag").addEventListener("click",function(){
+            if (p.type == "password"){
+                p.type = "text";
+                this.innerText = "隱藏密碼";
+            }
+            else{
+                p.type = "password";
+                this.innerText = "顯示密碼";
+            }
+        });
+
+        
+    </script>
+                                    
     </body>
 </html>

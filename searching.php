@@ -27,7 +27,7 @@
                         <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                         <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                             <!-- <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
@@ -55,20 +55,24 @@
                             <div class="text-center my-5">
                                 
                                 <h1 class="fw-bolder mb-3">時刻表查詢</h1>
-                                <div>
-                                    <!-- date range picker -->
-                                    <span class="fw-bold text-infos mb-auto me-auto ms-auto fs-7 my-auto ">From:</span><input class="form-control" type="text" placeholder="選擇起始日期" readonly="readonly" id="FromDate" name="FromDate" style="text-align: center"/>
-                                    <span class="fw-bold text-infos mb-auto me-auto ms-auto fs-7 my-auto ">To:</span><input class="form-control" type="text" placeholder="選擇結束日期" readonly="readonly" id="ToDate" name="ToDate" style="text-align: center;"/>
-
-                                </div>
-                                <!-- <p class="lead fw-normal text-muted mb-4">Start Bootstrap was built on the idea that quality, functional website templates and themes should be available to everyone. Use our open source, free products, or support us by purchasing one of our premium products or services.</p> -->
-                                <input class="btn" type="checkbox" id="s3">仍有空位<br>
-                                <a class="btn btn-primary btn-lg" id = 'summitBtn' >查詢</a>
+                                <form id="dateRange" action="ticket.php" method="get">
+                                    <div class="mb-4">
+                                        <!-- date range picker -->
+                                        <span class="fw-bold text-infos mb-4 me-auto ms-auto fs-7 my-auto ">From:</span>
+                                        <input class="form-control readonly" type="text" placeholder="選擇起始日期"  id="FromDate" name="FromDate" style="text-align: center" required/>
+                                        <span class="fw-bold text-infos mb-4 me-auto ms-auto fs-7 my-auto ">To:</span>
+                                        <input class="form-control readonly"  type="text" placeholder="選擇結束日期"  id="ToDate" name="ToDate" style="text-align: center;" required/>
+                                    </div>
+                                    <!-- <p class="lead fw-normal text-muted mb-4">Start Bootstrap was built on the idea that quality, functional website templates and themes should be available to everyone. Use our open source, free products, or support us by purchasing one of our premium products or services.</p> -->
+                                    <input class="btn" name="checkSeat" type="checkbox" id="checkSeat" value="Yes">仍有空位<br><br>
+                                    <button class="btn btn-primary btn-lg" id = 'submitBtn' type="submit">查詢</button>
+                                </form>
                                 <!-- this is for checking -->
                                 <!-- <script>document.getElementById("cc").addEventListener("click",function(){
                                     console.log(document.getElementById("FromDate").value);
                                     console.log(document.getElementById("ToDate").value);
                                 })</script> -->
+                                
                             </div>
                         </div>
                     </div>
@@ -153,6 +157,7 @@
                 </div>
             </div>
         </footer>
+        <!-- jsValidation -->
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

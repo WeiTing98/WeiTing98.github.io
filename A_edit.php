@@ -1,20 +1,22 @@
 <?php
     require_once 'dbconnection.php';
     $id = 0;
+    $TopTitle = "新增";
     if(isset($_GET['id'])){
         $id = intval($_GET['id']);
     }
-
-    $item = [];
-    if($id > 0){
-        $SQL = "SELECT * FROM `announcement` WHERE `index` = :id";
-        $data = $pdo->prepare($SQL);
-        $data->bindParam(':id',$id);
-        $data->execute();
-        $item = $data->fetch();
-        
+    if($id != -1){
+        $item = [];
+        if($id > 0){
+            $SQL = "SELECT * FROM `announcement` WHERE `index` = :id";
+            $data = $pdo->prepare($SQL);
+            $data->bindParam(':id',$id);
+            $data->execute();
+            $item = $data->fetch();
+        }
+        $TopTitle = "編輯";
     }
-
+    
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -45,7 +47,7 @@
                             <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                             <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
                             <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -57,19 +59,20 @@
                     <!-- Contact form-->
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">                           
-                            <h1 class="fw-bolder">編輯公告內容</h1>
+                            <h1 class="fw-bolder"><?php echo $TopTitle;?>公告內容</h1>
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
-                                <form id="announceForm" action="post.php">
+                                <form id="announceForm" action="<?php if($id==-1){echo "A_post.php";} else {echo "A_update.php";}?>" method="post">
                                     <!-- title -->
+                                    <input name="index"  value="<?php echo $id;?>" type="hidden">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="title" type="text" placeholder="標題" value="<?php echo isset($item) ? $item['title'] : ''; ?>"required/>
+                                        <input class="form-control" id="title" name="title" type="text" placeholder="標題" value="<?php echo isset($item) ? $item['title'] : ''; ?>"required/>
                                         <label for="title">標題</label>
                                     </div>
                                     <!-- Message input-->
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" id="message" type="text" placeholder="輸入公告內容" style="height: 10rem"  required><?php echo $item['content']; ?></textarea>
+                                        <textarea class="form-control" id="message" name="message" type="text" placeholder="輸入公告內容" style="height: 10rem"  required><?php echo isset($item) ? $item['content']: ''; ?></textarea>
                                             
                                         
                                         <label for="message">內容</label> 
@@ -159,10 +162,10 @@
     </script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" ></script>
     <script>
-                        $( "#cancelButton" ).click(function(){
-                            alert("系統不會儲存您所修改的資料");
-                            history.back();
-                        });
-                    </script>
+        $( "#cancelButton" ).click(function(){
+            alert("系統不會儲存您所修改的資料");
+            history.back();
+        });
+    </script>
     </body>
 </html>

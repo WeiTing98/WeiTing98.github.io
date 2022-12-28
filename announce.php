@@ -34,7 +34,7 @@
                             <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                             <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
                             <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -48,12 +48,16 @@
                                 <span class='fw-bold display-6 mb-5'>公佈欄</span>
                                 <div class="fs-4 mb-4 ">
                                 <br>
+                                <a href="A_edit.php?id=-1" class="fs-2">新增公告</a>
+                                <br>
                                 <hr size='5px' width="100%">
                                 <?php
-                                
+                                if(count( $item)==0){
+                                    echo '<div class="fs-1 text-center">無公告資料</br>';
+                                }
                                 foreach($item as $i){
                                     echo '<span class="fs-2 ">';echo $i['title'];echo' </span>';
-                                    echo '<a href="edit.php?id='.$i['index'].'">編輯</a>';
+                                    echo '<a href="A_edit.php?id='.$i['index'].'">編輯</a> <a href="javascript: del('.$i['index'].')">刪除</a>';
                                     echo '<div class="d-flex align-items-center justify-content-center fs-5">';
                                     echo '<p>'.$i['content'].'</p>'.'</br>'.'</div>';
                                     echo '<span class="fw-normal fs-6 float-end">發布：'.$i['author'].'</span>';
@@ -61,7 +65,6 @@
                                     
                                 }
                                 ?>
-                               
                                 </div>
                             </div>
                         </div>
@@ -100,5 +103,12 @@
         crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" ></script>
+    <script>
+        function del(s){
+            if(confirm("確定要刪除此筆公告?")==true){
+                location.href = "A_delete.php?id="+s;
+            }
+        }
+    </script>
     </body>
 </html>

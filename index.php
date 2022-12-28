@@ -34,7 +34,7 @@
                         <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                         <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                         </ul>
                     </div>
                 </div>

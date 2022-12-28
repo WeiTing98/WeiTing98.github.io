@@ -1,3 +1,22 @@
+<?php
+    require_once 'dbconnection.php';
+    $from = 0;
+    $to = 0;
+    $availableSeat = false;
+    if(!is_null($_GET['FromDate'])&&!is_null($_GET['ToDate'])){
+        $from = $_GET['FromDate'];
+        $to = $_GET['ToDate'];
+    }
+    if(count($_GET)==3){
+        $availableSeat = true;
+    }   
+    $fd = date("Y-m-d",strtotime($from));
+    $td = date("Y-m-d",strtotime($to));
+    $sqlanc = sprintf('SELECT * FROM `seat table` WHERE `date` BETWEEN \'%s\' AND \'%s\' ORDER BY `date`',$fd,$td);
+    $data = $pdo->prepare($sqlanc);
+    $data->execute();
+    $item = $data->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="zh-TW">
     <head>
@@ -25,22 +44,7 @@
                         <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                         <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
-                                    <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                                </ul>
-                            </li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -50,109 +54,50 @@
                 <div class="container px-5 my-5">
                     <div class="text-center mb-5">
                         <h1 class="fw-bolder">預訂座位</h1>
-                        <p class="lead fw-normal text-muted mb-0">以下為您所查詢的日期區間：2022/12/2 ~ 2022/12/16</p>
+                        <p class="lead fw-normal text-muted mb-0">以下為您所查詢的日期區間：<?php echo $from." 至 ".$to?></p>
                     </div>
                     <div class="row gx-5 justify-content-center">
                         <!-- Pricing card free-->
-                        <div class="col-lg-6 col-xl-4">
+                        <!-- <div class="col-lg-6 col-xl-4">
                             <div class="card mb-5 mb-xl-0">
-                                <div class="card-body p-5">
-                                    <div class="small text-uppercase fw-bold text-muted">班次1</div>
-                                    <div class="mb-3">
-                                        <span class="display-4 fw-bold">2022/12/2</span>
-                                        <span class="text-muted">可預訂</span>
-                                    </div>
-                                    <!-- <ul class="list-unstyled mb-4">
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            <strong>1 users</strong>
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            5GB storage
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Unlimited public projects
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Community access
-                                        </li>
-                                        <li class="mb-2 text-muted">
-                                            <i class="bi bi-x"></i>
-                                            Unlimited private projects
-                                        </li>
-                                        <li class="mb-2 text-muted">
-                                            <i class="bi bi-x"></i>
-                                            Dedicated support
-                                        </li>
-                                        <li class="mb-2 text-muted">
-                                            <i class="bi bi-x"></i>
-                                            Free linked domain
-                                        </li>
-                                        <li class="text-muted">
-                                            <i class="bi bi-x"></i>
-                                            Monthly status reports
-                                        </li>
-                                    </ul> -->
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="#!">預定</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pricing card pro-->
-                        <div class="col-lg-6 col-xl-4">
-                            <div class="card mb-5 mb-xl-0">
-                                <div class="card-body p-5">
-                                    <div class="small text-uppercase fw-bold">
-                                        <!-- <i class="bi bi-star-fill text-warning"></i> -->
-                                        班次2
-                                    </div>
-                                    <div class="mb-3">
-                                        <span class="display-4 fw-bold">2022/12/9</span>
-                                        <span class="text-muted">額滿</span>
-                                    </div>
-                                    <!-- <ul class="list-unstyled mb-4">
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            <strong>5 users</strong>
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            5GB storage
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Unlimited public projects
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Community access
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Unlimited private projects
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Dedicated support
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Free linked domain
-                                        </li>
-                                        <li class="text-muted">
-                                            <i class="bi bi-x"></i>
-                                            Monthly status reports
-                                        </li>
-                                    </ul> -->
-                                    <div class="d-grid"><button disable="disable" class="btn btn-primary" href="#!">無法預定</button>
-                                       </div>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="card-body p-5"> -->
+                                    <?php
+                                        if(count($item)==0){
+                                            echo '<div class="fs-1 text-center">查無資料</br><a class="fs-5" href=searching.php>回上頁</a></div>';
+                                        }
+                                        $c = 0;
+                                        foreach($item as $i){
+                                            if ($availableSeat){
+                                                if($i['available']==0){
+                                                    continue;
+                                                }
+                                            }
+                                            $c+=1;
+                                            $date = date("Y/m/d l",strtotime( $i['date']));
+                                            $state = "可預訂";
+                                            $able = "";
+                                            if($i['available']==0){
+                                                $state = "不可預訂";
+                                                $able = 'disabled';
+                                            }
+                                            echo "<div class='col-lg-6 col-xl-4'>
+                                                <div class='card mb-5 mb-xl-0'>
+                                                <div class='card-body p-5'>";
+                                            echo "<div class='small text-uppercase fw-bold text-muted'>班次".$i['bus number']."</div>
+                                            <div class='mb-3'>
+                                                <span class='display-6 fw-bold'>".$date."</span>
+                                                <span class='text-muted'>".$state."</span>
+                                            </div>";
+                                            echo '<div class="d-grid"><button class="btn btn-outline-primary" id = "'.$i['bus number'],'"'.$able.' >'.$state.'</button></div>';
+                                            echo '</div></div></div>';
+                                        }
+                                        if($c == 0){
+                                            echo '<div class="fs-1 text-center">查無資料</br><a class="fs-5" href=searching.php>回上頁</a></div>';
+                                        }
+                                    ?>
+                                    
                         <!-- Pricing card enterprise-->
-                        <div class="col-lg-6 col-xl-4">
+                        <!-- <div class="col-lg-6 col-xl-4">
                             <div class="card">
                                 <div class="card-body p-5">
                                     <div class="small text-uppercase fw-bold text-muted">班次3</div>
@@ -160,45 +105,10 @@
                                         <span class="display-4 fw-bold">2022/12/16</span>
                                         <span class="text-muted">可預訂</span>
                                     </div>
-                                    <!-- <ul class="list-unstyled mb-4">
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            <strong>Unlimited users</strong>
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            5GB storage
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Unlimited public projects
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Community access
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Unlimited private projects
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Dedicated support
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            <strong>Unlimited</strong>
-                                            linked domains
-                                        </li>
-                                        <li class="text-muted">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Monthly status reports
-                                        </li>
-                                    </ul> -->
                                     <div class="d-grid"><a class="btn btn-outline-primary" href="#!">預定</a></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </section>
