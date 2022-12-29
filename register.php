@@ -59,17 +59,17 @@
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
-                                <form id="loginForm" action="usermanage.php">
+                                <form id="loginForm" action="addaccount.php" method="post">
                                     <!-- Email address input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="username" type="text" placeholder="帳號" required/>
+                                        <input class="form-control" name='username' id="username" type="text" placeholder="帳號" required/>
                                         <label for="username">帳號(學號)</label>
                                         <!-- <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                         <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> -->
                                     </div>
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="pwd" placeholder="密碼" required />
+                                        <input type="password"  name='password' class="form-control" id="pwd" placeholder="密碼" required />
                                         <label for="pwd">密碼</label>
                                         <a class="btn btn-secondary" id = "pwdtag">顯示密碼</a>
                                         
@@ -90,18 +90,18 @@
                                         </script>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="email" type="text" placeholder="email" required/>
+                                        <input class="form-control" name='email' id="email" type="text" placeholder="email" required/>
                                         <label for="email">E-mail</label>
                                     </div>
                                     
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="name" type="text" placeholder="姓名" required/>
+                                        <input class="form-control" name='name' id="name" type="text" placeholder="姓名" required/>
                                         <label for="name">姓名</label>
                                     </div>
                                     
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="phone" type="text" placeholder="電話" required/>
-                                        <label for="email">電話</label>
+                                        <input class="form-control" name='phone' id="phone" type="text" placeholder="電話" required/>
+                                        <label for="phone">電話</label>
                                     </div>
                                     <!-- Message input-->
                                     <!-- <div class="form-floating mb-3">
