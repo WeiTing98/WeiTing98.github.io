@@ -34,34 +34,30 @@
             <section class="bg-light py-5">
                 <div class="container px-5 my-5">
                     <div class="text-center mb-5">
-                        <h1 class="fw-bolder">選擇控制項</h1>
-                        <!-- <p class="lead fw-normal text-muted mb-0"></p> -->
+                        <h1 class="fw-bolder">選擇控制項</h1>    
                     </div>
                     <div class="row gx-5 justify-content-center">
-                        <!-- Pricing card free-->
+                        <!-- 區塊1 -->
                         <div class="col-lg-6 col-xl-4">
                             <div class="card mb-5 mb-xl-0">
                                 <div class="card-body p-5">
-                                    <!-- <div class="small text-uppercase fw-bold text-muted">班次1</div> -->
+                                    
                                     <div class="mb-3">
                                         <span class="display-7 fw-normal">phpMyAdmin</span>
-                                        <!-- <span class="text-muted">Go</span> -->
+                                        
                                     </div>
                                     <div class="d-grid"><a class="btn btn-outline-primary" href="../../phpmyadmin">Go</a></div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Pricing card pro-->
+                        <!-- 區塊2 -->
                         <div class="col-lg-6 col-xl-4">
                             <div class="card mb-5 mb-xl-0">
                                 <div class="card-body p-5">
-                                    <!-- <div class="small text-uppercase fw-bold">
-                                        <i class="bi bi-star-fill text-warning"></i> 
-                                        班次2
-                                    </div> -->
+                                
                                     <div class="mb-3">
                                         <span class="display-7 fw-normal">修改使用者資料</span>
-                                        <!-- <span class="text-muted">額滿</span> -->
+                                    
                                     </div>
                                 
                                     <div class="d-grid"><a class="btn btn-outline-primary" href="">Go</a> <!-- btn-primary 為實心色-->
@@ -69,17 +65,25 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Pricing card enterprise-->
+                        <!-- 區塊3 -->
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card">
+                                <div class="card-body p-5">                                    
+                                    <div class="mb-3">
+                                        <span class="display-7 fw-normal">公告系統</span>
+                                    </div>                                   
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="announce.php">Go</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 區塊4 -->
                         <div class="col-lg-6 col-xl-4">
                             <div class="card">
                                 <div class="card-body p-5">
-                                    <!-- <div class="small text-uppercase fw-bold text-muted">班次3</div> -->
                                     <div class="mb-3">
-                                        <span class="display-7 fw-normal">公告系統</span>
-                                        <!-- <span class="text-muted">可預訂</span> -->
+                                        <span class="display-7 fw-normal">編輯時刻表</span>
                                     </div>
-                                    
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="announce.php">Go</a></div>
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="timetable.php">Go</a></div>
                                 </div>
                             </div>
                         </div>

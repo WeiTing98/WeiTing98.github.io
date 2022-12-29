@@ -70,7 +70,7 @@
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
                                         <input type="password" class="form-control" name='password'  id="pwd" placeholder="密碼" required />
-                                        <button class="btn btn-outline-secondary" id = "pwdtag">顯示密碼</button>
+                                        <button class="btn btn-outline-secondary" type="button" id = "pwdtag">顯示密碼</button>
                                         <label for="pwd">密碼</label>
                                     </div>
                                         

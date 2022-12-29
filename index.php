@@ -1,9 +1,15 @@
 <?php
+    session_start();
     require_once 'dbconnection.php';
     $sqlanc = 'SELECT * FROM `announcement` ORDER BY `index` DESC';
     $data = $pdo->prepare($sqlanc);
     $data->execute();
     $item = $data->fetchAll();
+    $name = '';
+    // if (!empty($_SESSION['name']) ){
+    //     $name = $_SESSION['name'];
+    //     echo '??????';
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -33,7 +39,16 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                         <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li> -->
+                        <?php 
+                            if (empty($_SESSION)){
+                                echo '<li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>';
+                            }
+                            else{
+                                echo '<li class="nav-item"><a class="nav-link" href="user.php">你好, '.$_SESSION['name'].'</a></li>';
+                                echo '<li class="nav-item"><a class="nav-link" href="logout.php">登出</a></li>';
+                            }
+                        ?>
                         <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                         </ul>
                     </div>

@@ -11,7 +11,7 @@
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <!-- jQuery -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css" type="text/css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css" type="text/css"/>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet">
 </head>
@@ -27,7 +27,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                         <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                         <!-- <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
@@ -49,78 +49,26 @@
         </nav>
         <!-- Header-->
         <header class="py-5">
-            <div class="container px-5">
-                <div class="row justify-content-center">
-                    <div>
-    <img src="change.png" alt="timetable" width="1080" height="720"><img src="bus.png" alt="bus_fee" width="1080" height="720">
-    
-</div>
-                </div>
-            </div>
-        </header>
-        <!-- About section one-->
-        <!-- <section class="py-5 bg-light" id="scroll-target">
-            <div class="container px-5 my-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
-                    <div class="col-lg-6">
-                        <h2 class="fw-bolder">Our founding</h2>
-                        <p class="lead fw-normal text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est, ut esse a labore aliquam beatae expedita. Blanditiis impedit numquam libero molestiae et fugit cupiditate, quibusdam expedita, maiores eaque quisquam.</p>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-        <!-- About section two-->
-        <!-- <section class="py-5">
-            <div class="container px-5 my-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
-                    <div class="col-lg-6">
-                        <h2 class="fw-bolder">Growth &amp; beyond</h2>
-                        <p class="lead fw-normal text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est, ut esse a labore aliquam beatae expedita. Blanditiis impedit numquam libero molestiae et fugit cupiditate, quibusdam expedita, maiores eaque quisquam.</p>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-        <!-- Team members section-->
-        <!-- <section class="py-5 bg-light">
-            <div class="container px-5 my-5">
-                <div class="text-center">
-                    <h2 class="fw-bolder">Our team</h2>
-                    <p class="lead fw-normal text-muted mb-5">Dedicated to quality and your success</p>
-                </div>
-                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5 mb-5 mb-xl-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder">Ibbie Eckart</h5>
-                            <div class="fst-italic text-muted">Founder &amp; CEO</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 mb-5 mb-xl-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder">Arden Vasek</h5>
-                            <div class="fst-italic text-muted">CFO</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 mb-5 mb-sm-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder">Toribio Nerthus</h5>
-                            <div class="fst-italic text-muted">Operations Manager</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder">Malvina Cilla</h5>
-                            <div class="fst-italic text-muted">CTO</div>
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-xxl-6">
+                            <div class="text-center my-5">
+                                
+                                <h1 class="fw-bolder mb-3">編輯時刻表</h1>
+                                <form id="dateRange" action="T_u.php" method="get">
+                                    <div class="mb-4">
+                                        <!-- date range picker -->
+                                        <span class="fw-bold text-infos mb-4 me-auto ms-auto fs-7 my-auto ">新增日期</span>
+                                        <input class="form-control readonly" type="text" placeholder="選擇日期"  id="Date" name="Date" style="text-align: center" required/>
+                                    </div>
+                                    <button class="btn btn-primary btn-lg" id = 'submitBtn' type="submit">新增</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section> -->
+            </header>
+        
     </main>
     <!-- Footer-->
     <footer class="bg-dark py-4 mt-auto">
@@ -141,6 +89,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-
-
-</body></html>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" ></script>
+    <script>
+        $( function() {
+            $( "#Date" ).datepicker();
+        } );
+        // $(function(){
+        //     $("#Date").datepicker(
+        //         {
+        //             dateFormat : 'yy/mm/dd',
+        //             minDate:0,    
+        //         }
+        //     );
+        // });
+    </script>
+</body>
+</html>

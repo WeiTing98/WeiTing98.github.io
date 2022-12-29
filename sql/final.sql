@@ -22,67 +22,86 @@ USE `finalprojectdata`;
 -- 傾印  資料表 finalprojectdata.announcement 結構
 CREATE TABLE IF NOT EXISTS `announcement` (
   `index` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` text COLLATE utf8_bin DEFAULT '無標題',
+  `title` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `date` datetime DEFAULT NULL,
-  `content` text COLLATE utf8_bin DEFAULT '無內容',
-  `author` text COLLATE utf8_bin DEFAULT NULL,
+  `content` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `img` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `author` varchar(15) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`index`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- 正在傾印表格  finalprojectdata.announcement 的資料：~6 rows (近似值)
-REPLACE INTO `announcement` (`index`, `title`, `date`, `content`, `author`) VALUES
-	(1, '測試資料1', '2022-12-22 20:29:41', '公佈欄內容可放置於此，例如：高鐵票資訊、發車資訊等', '管理員A'),
-	(2, '測試資料2', '2022-12-23 02:08:57', '本測試資料，僅供測試使用，上次測試是在上次。', '管理員B'),
-	(3, '測試資料3', '2022-12-23 02:35:49', '注意看，這男人太狠了，竟然有第三筆', '管理員C'),
-	(4, '測試資料4', '2022-12-23 02:36:52', 'OMG，大狀與小美發公告了！', '管理員D'),
-	(5, '測試資料5', '2022-12-23 02:37:45', '看看這精美的五份公告', '管理員E'),
-	(6, '測試資料6', '2022-12-23 02:38:41', '瘋了吧地六份', '管理員F');
+-- 正在傾印表格  finalprojectdata.announcement 的資料：~5 rows (近似值)
+REPLACE INTO `announcement` (`index`, `title`, `date`, `content`, `img`, `author`) VALUES
+	(15, '這是測試資料1', '2022-12-29 02:25:56', '這裡可以上傳公告，公告會顯示在首頁', '/final project website/change.png', '管理員Y'),
+	(16, '測試資料2', '2022-12-29 02:26:29', '想新增上傳圖片的功能但還沒做<3', NULL, '管理員Y'),
+	(17, '又是測試資料', '2022-12-29 02:26:56', '上次測試是在上次喔!!!!', NULL, '管理員Y'),
+	(18, '晚餐吃甚麼啊??????', '2022-12-29 02:27:45', '晚餐吃晚餐阿==\r\n不然吃早餐嗎==', NULL, '管理員Y'),
+	(19, '早安', '2022-12-29 02:39:05', '恭喜發財!  新年快樂喔!!!', NULL, '管理員Y');
 
 -- 傾印  資料表 finalprojectdata.bus 結構
 CREATE TABLE IF NOT EXISTS `bus` (
   `index` bigint(20) NOT NULL AUTO_INCREMENT,
-  `seatnum` text COLLATE utf8_bin DEFAULT NULL,
+  `number of seats` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
+  `bus date` date DEFAULT NULL,
   PRIMARY KEY (`index`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- 正在傾印表格  finalprojectdata.bus 的資料：~4 rows (近似值)
-REPLACE INTO `bus` (`index`, `seatnum`, `price`) VALUES
-	(1, '1A', 100),
-	(2, '1B', 100),
-	(3, '1C', 100),
-	(4, '1D', 100);
+-- 正在傾印表格  finalprojectdata.bus 的資料：~3 rows (近似值)
+REPLACE INTO `bus` (`index`, `number of seats`, `price`, `bus date`) VALUES
+	(1, 60, 100, '2022-12-30'),
+	(2, 60, 100, '2023-01-06'),
+	(3, 60, 100, '2023-01-13');
+
+-- 傾印  資料表 finalprojectdata.seat table 結構
+CREATE TABLE IF NOT EXISTS `seat table` (
+  `bus number` int(11) NOT NULL AUTO_INCREMENT,
+  `available` tinyint(4) NOT NULL DEFAULT 0,
+  `date` date DEFAULT NULL,
+  PRIMARY KEY (`bus number`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+-- 正在傾印表格  finalprojectdata.seat table 的資料：~3 rows (近似值)
+REPLACE INTO `seat table` (`bus number`, `available`, `date`) VALUES
+	(1, 0, '2022-12-30'),
+	(2, 1, '2023-01-06'),
+	(3, 1, '2023-01-13');
 
 -- 傾印  資料表 finalprojectdata.ticket record 結構
 CREATE TABLE IF NOT EXISTS `ticket record` (
   `index` bigint(20) NOT NULL AUTO_INCREMENT,
-  `account` text COLLATE utf8_bin DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `available` tinyint(4) DEFAULT NULL,
+  `account` varchar(10) COLLATE utf8_bin NOT NULL,
+  `price` int(11) DEFAULT 100,
+  `bus date` date DEFAULT NULL,
   `timestamp` datetime DEFAULT NULL,
-  `state` text COLLATE utf8_bin DEFAULT NULL,
+  `state` varchar(10) COLLATE utf8_bin DEFAULT NULL,
   `applyrefund` tinyint(4) DEFAULT NULL,
   `refunded` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`index`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  PRIMARY KEY (`index`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- 正在傾印表格  finalprojectdata.ticket record 的資料：~1 rows (近似值)
-REPLACE INTO `ticket record` (`index`, `account`, `price`, `available`, `timestamp`, `state`, `applyrefund`, `refunded`) VALUES
-	(1, '409430000', 100, 1, '2022-12-22 11:25:13', 'Paid', 0, 0);
+-- 正在傾印表格  finalprojectdata.ticket record 的資料：~3 rows (近似值)
+REPLACE INTO `ticket record` (`index`, `account`, `price`, `bus date`, `timestamp`, `state`, `applyrefund`, `refunded`) VALUES
+	(1, '409430000', 100, '2022-12-30', '2022-12-22 11:25:13', 'Paid', 0, 0),
+	(2, '409430000', 100, '2023-01-06', '2022-12-29 10:46:19', 'Not Paid', 0, 0),
+	(3, '409123456', 100, '2022-12-30', '2022-12-29 10:47:44', 'Paid', 1, 0);
 
 -- 傾印  資料表 finalprojectdata.user account 結構
 CREATE TABLE IF NOT EXISTS `user account` (
-  `studentID` text COLLATE utf8_bin NOT NULL,
-  `name` text COLLATE utf8_bin NOT NULL,
-  `phone` text COLLATE utf8_bin NOT NULL,
-  `email` text COLLATE utf8_bin NOT NULL,
-  `password` text COLLATE utf8_bin NOT NULL
+  `account` varchar(10) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `name` varchar(20) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `phone` varchar(10) COLLATE utf8_bin DEFAULT '',
+  `email` varchar(30) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `password` varchar(20) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `admin` tinyint(4) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- 正在傾印表格  finalprojectdata.user account 的資料：~2 rows (近似值)
-REPLACE INTO `user account` (`studentID`, `name`, `phone`, `email`, `password`) VALUES
-	('409123456', 'test account', '987654321', 'abcd@example.com', 'abc123'),
-	('409430000', 'test2', '912345678', 'cdef@example.com', 'abcd1234');
+-- 正在傾印表格  finalprojectdata.user account 的資料：~3 rows (近似值)
+REPLACE INTO `user account` (`account`, `name`, `phone`, `email`, `password`, `admin`) VALUES
+	('409123456', '帳號名1', '0987654321', 'abcd@example.com', 'abc123', 0),
+	('409430000', '大壯', '0912345678', 'cdef@example.com', 'abcd1234', 0),
+	('admin123', '管理員Y', '0912398765', 'admin@example.com', 'admin987', 1);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
