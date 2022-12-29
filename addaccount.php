@@ -1,5 +1,3 @@
-<html lang="zh-TW">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -33,36 +31,43 @@
                 </div>
             </div>
         </nav>
-        <?php
+    </main>
+    <?php
         session_start();
         $id = "";
         $password = "";
-        if (isset($_POST["name"]))
-            $id = $_POST["name"];
+        $name = "";
+        $email = "";
+        $phone = "";
+        if (isset($_POST["username"]))
+            $id = $_POST["username"];
         if (isset($_POST["password"]))
             $password = $_POST["password"];
-        if ($id != "" && $password != "") {
+        if (isset($_POST["email"]))
+            $email = $_POST["email"];
+        if (isset($_POST["name"]))
+            $name = $_POST["name"];
+        if (isset($_POST["phone"]))
+            $phone = $_POST["phone"];
+        if ($id != "" && $password != ""&& $email != ""&& $name != ""&& $phone != "") {
             $link = mysqli_connect("localhost", "root", "", "finalprojectdata")
-                or die("fail connect");
-            mysqli_query($link, 'SET NAMES utf8');
-            $sql = "SELECT * FROM `user account` WHERE password = '{$password}' AND studentID = '{$id}'";
-            echo $id;
-            echo $password;
-            $result = mysqli_query($link, $sql);
-            $total_records = mysqli_num_rows($result);
-            if ($total_records > 0) {
-                $_SESSION["login_session"] = true;
-                header("Location: index.php");
+                or die("fail connect db");
+            $sql_insert = "INSERT INTO `user account` (`studentID`, `name`, `phone`, `email`, `password`) VALUES ('$id', '$name', '$phone', '$email', '$password')";
+            $result = mysqli_query($link, $sql_insert);
+            if (mysqli_affected_rows($link) > 0) {
+                // 如果有一筆以上代表有更新
+                // mysqli_insert_id可以抓到第一筆的id
+                $new_id = mysqli_insert_id($link);
+                echo "<h1>註冊成功</h1>";
+                //header('Location:login.php');
+            } elseif (mysqli_affected_rows($link) == 0) {
+                echo "無資料新增";
             } else {
-                echo "<center><font color='red'>";
-                echo "使用者名稱或密碼錯誤!<br/>";
-                echo "</font>";
-                $_SESSION["login_session"] = false;
+                echo "{$sql} 語法執行失敗，錯誤訊息: " . mysqli_error($link);
             }
             mysqli_close($link);
         }
         ?>
-    </main>
     <!-- Footer-->
     <footer class="bg-dark py-4 mt-auto">
         <div class="container px-5">

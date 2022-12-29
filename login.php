@@ -59,18 +59,18 @@
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
-                                <form id="loginForm" action="usermanage.php">
+                                <form id="loginForm" action="usermanage.php" method="post">
                                     <!-- Email address input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="username" type="text" placeholder="帳號" required/>
+                                        <input class="form-control" name='name' id="username" type="text" placeholder="帳號" required/>
                                         <label for="username">帳號</label>
                                         <!-- <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                         <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> -->
                                     </div>
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control"  id="pwd" placeholder="密碼" required />
-                                        <button class="btn btn-outline-secondary" type ="button" id = "pwdtag">顯示密碼</button>
+                                        <input type="password" class="form-control" name='password'  id="pwd" placeholder="密碼" required />
+                                        <button class="btn btn-outline-secondary" id = "pwdtag">顯示密碼</button>
                                         <label for="pwd">密碼</label>
                                     </div>
                                         
