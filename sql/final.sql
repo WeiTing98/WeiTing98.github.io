@@ -27,16 +27,18 @@ CREATE TABLE IF NOT EXISTS `announcement` (
   `content` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `img` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `author` varchar(15) COLLATE utf8_bin DEFAULT NULL,
+  `lastedit` varchar(15) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`index`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- 正在傾印表格  finalprojectdata.announcement 的資料：~5 rows (近似值)
-REPLACE INTO `announcement` (`index`, `title`, `date`, `content`, `img`, `author`) VALUES
-	(15, '這是測試資料1', '2022-12-29 02:25:56', '這裡可以上傳公告，公告會顯示在首頁', '/final project website/change.png', '管理員Y'),
-	(16, '測試資料2', '2022-12-29 02:26:29', '想新增上傳圖片的功能但還沒做<3', NULL, '管理員Y'),
-	(17, '又是測試資料', '2022-12-29 02:26:56', '上次測試是在上次喔!!!!', NULL, '管理員Y'),
-	(18, '晚餐吃甚麼啊??????', '2022-12-29 02:27:45', '晚餐吃晚餐阿==\r\n不然吃早餐嗎==', NULL, '管理員Y'),
-	(19, '早安', '2022-12-29 02:39:05', '恭喜發財!  新年快樂喔!!!', NULL, '管理員Y');
+-- 正在傾印表格  finalprojectdata.announcement 的資料：~6 rows (近似值)
+REPLACE INTO `announcement` (`index`, `title`, `date`, `content`, `img`, `author`, `lastedit`) VALUES
+	(15, '這是測試資料1', '2022-12-29 02:25:56', '這裡可以上傳公告，公告會顯示在首頁', '/final project website/change.png', '管理員Y', NULL),
+	(16, '測試資料2', '2022-12-30 02:21:13', '想新增上傳圖片的功能但還沒做<3ㄏㄏ\r\n', NULL, '管理員Y', NULL),
+	(17, '又是測試資料', '2022-12-29 02:26:56', '上次測試是在上次喔!!!!', NULL, '管理員Y', NULL),
+	(18, '晚餐吃甚麼啊??????', '2022-12-30 10:51:30', '晚餐吃晚餐阿==\r\n不然吃早餐嗎==\r\n==', NULL, '管理員Y', '小壯'),
+	(19, '早安', '2022-12-30 10:49:38', '恭喜發財!  新年快樂喔!!! 期末地獄', NULL, '小美', '小壯'),
+	(20, '我是誰????', '2022-12-30 02:35:29', '皮卡丘!!!!!!', NULL, '小美', '小壯');
 
 -- 傾印  資料表 finalprojectdata.bus 結構
 CREATE TABLE IF NOT EXISTS `bus` (
@@ -47,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `bus` (
   PRIMARY KEY (`index`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- 正在傾印表格  finalprojectdata.bus 的資料：~3 rows (近似值)
+-- 正在傾印表格  finalprojectdata.bus 的資料：~2 rows (近似值)
 REPLACE INTO `bus` (`index`, `number of seats`, `price`, `bus date`) VALUES
 	(1, 60, 100, '2022-12-30'),
 	(2, 60, 100, '2023-01-06'),
@@ -97,11 +99,12 @@ CREATE TABLE IF NOT EXISTS `user account` (
   PRIMARY KEY (`account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- 正在傾印表格  finalprojectdata.user account 的資料：~3 rows (近似值)
+-- 正在傾印表格  finalprojectdata.user account 的資料：~4 rows (近似值)
 REPLACE INTO `user account` (`account`, `name`, `phone`, `email`, `password`, `admin`) VALUES
 	('409123456', '帳號名1', '0987654321', 'abcd@example.com', 'abc123', 0),
 	('409430000', '大壯', '0912345678', 'cdef@example.com', 'abcd1234', 0),
-	('admin123', '管理員Y', '0912398765', 'admin@example.com', 'admin987', 1);
+	('admin123', '小美', '0912398765', 'admin@example.com', 'admin987', 1),
+	('admin321', '小壯', '0900000000', '1234@example.com', 'admin987', 1);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

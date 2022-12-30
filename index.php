@@ -45,7 +45,11 @@
                                 echo '<li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>';
                             }
                             else{
-                                echo '<li class="nav-item"><a class="nav-link" href="user.php">你好, '.$_SESSION['name'].'</a></li>';
+                                if($_SESSION['admin']){
+                                    echo '<li class="nav-item"><a class="nav-link" href="admin.php">你好, 管理員'.$_SESSION['name'].'</a></li>';
+                                }else{
+                                    echo '<li class="nav-item"><a class="nav-link" href="user.php">你好, '.$_SESSION['name'].'</a></li>';
+                                }
                                 echo '<li class="nav-item"><a class="nav-link" href="logout.php">登出</a></li>';
                             }
                         ?>
@@ -92,6 +96,9 @@
                                     // echo '<div class="fw-normal justify-content-sm-end">';
                                     if(!is_null($i['img'] )){
                                         echo '<figure class="mb-4"><img class="img-fluid rounded" src="' .$i['img']. '" /></figure>';
+                                    }
+                                    if(!is_null($i['lastedit'])){
+                                        echo '<span class="fw-normal fs-6 float-end">最後編輯：'.$i['lastedit'].' at '.$i['date'].'</span></br>';
                                     }
                                     echo '<span class="fw-normal fs-6 float-end">發布：'.$i['author'].'</span>';
                                     echo '<hr size="5px" width="100%">';

@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!$_SESSION['admin']){
+    header("Location: index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="zh-TW">
     <head>
@@ -24,7 +30,9 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                         <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
+                        <?php echo '<li class="nav-item"><a class="nav-link" href="admin.php">你好, 管理員'.$_SESSION['name'].'</a></li>';?>
+                        <li class="nav-item"><a class="nav-link" href="logout.php">登出</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li> -->
                         <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                         </ul>
                     </div>
@@ -57,10 +65,8 @@
                                 
                                     <div class="mb-3">
                                         <span class="display-7 fw-normal">修改使用者資料</span>
-                                    
                                     </div>
-                                
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="">Go</a> <!-- btn-primary 為實心色-->
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="user.php">Go</a> <!-- btn-primary 為實心色-->
                                        </div>
                                 </div>
                             </div>

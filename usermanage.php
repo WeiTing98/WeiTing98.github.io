@@ -20,6 +20,15 @@ if ($id != "" && $password != "") {
         $_SESSION['id'] = $user[0];
         $_SESSION['name'] = $user[1];
         $_SESSION["login_session"] = true;
+        $_SESSION['phone'] = $user[2];
+        $_SESSION['email'] = $user[3];
+        $_SESSION['password'] = $user[4];
+        if($user[5] == 1){
+            $_SESSION['admin'] = true;
+        }
+        else{
+            $_SESSION['admin'] = false;
+        }
         header("Location: index.php");
     } else {
         echo "<center><font color='red'>";

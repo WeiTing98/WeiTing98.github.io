@@ -35,6 +35,41 @@
                     </div>
                 </div>
             </nav>
+            <!-- Page content-->
+            <section class="bg-light py-5">
+                <div class="container px-5 my-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder">選擇控制項</h1>    
+                    </div>
+                    <div class="row gx-5 justify-content-center">
+                        <!-- 區塊1 -->
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card mb-5 mb-xl-0">
+                                <div class="card-body p-5">
+                                    
+                                    <div class="mb-3">
+                                        <span class="display-7 fw-normal">修改帳號資料</span>
+                                        
+                                    </div>
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="user.php">Go</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 區塊2 -->
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card mb-5 mb-xl-0">
+                                <div class="card-body p-5">
+                                    <div class="mb-3">
+                                        <span class="display-7 fw-normal">我的訂票紀錄</span>
+                                    </div>
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="">Go</a> <!-- btn-primary 為實心色-->
+                                       </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">

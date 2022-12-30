@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once 'dbconnection.php';
     $from = 0;
     $to = 0;
@@ -43,7 +44,21 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                         <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
+                        <?php 
+                            if (empty($_SESSION)){
+                                echo '<li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>';
+                            }
+                            else{
+                                
+                                if($_SESSION['admin']){
+                                    echo '<li class="nav-item"><a class="nav-link" href="admin.php">你好, 管理員'.$_SESSION['name'].'</a></li>';
+                                }else{
+                                    echo '<li class="nav-item"><a class="nav-link" href="user.php">你好, '.$_SESSION['name'].'</a></li>';
+                                }
+                                echo '<li class="nav-item"><a class="nav-link" href="logout.php">登出</a></li>';
+                            }
+                        ?>
+                        <!-- <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li> -->
                         <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                         </ul>
                     </div>
@@ -88,14 +103,13 @@
                                                 <span class='display-6 fw-bold'>".$date."</span>
                                                 <span class='text-muted'>".$state."</span>
                                             </div>";
-                                            echo '<div class="d-grid"><button class="btn btn-outline-primary" id = "'.$i['bus number'],'"'.$able.' >'.$state.'</button></div>';
+                                            echo '<div class="d-grid"><a class="btn btn-outline-primary" href = "book.php?id='.$i['bus number'].'" id = "'.$i['bus number'],'"'.$able.' >'.$state.'</a></div>';
                                             echo '</div></div></div>';
                                         }
                                         if($c == 0){
                                             echo '<div class="fs-1 text-center">查無資料</br><a class="fs-5" href=searching.php>回上頁</a></div>';
                                         }
                                     ?>
-                                    
                         <!-- Pricing card enterprise-->
                         <!-- <div class="col-lg-6 col-xl-4">
                             <div class="card">

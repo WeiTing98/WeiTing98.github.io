@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(!$_SESSION['admin']){
+    header("Location: index.php");
+    }
     require_once 'dbconnection.php';
     $index = $_GET['id'];
     //刪除

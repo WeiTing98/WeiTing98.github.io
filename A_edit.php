@@ -1,5 +1,10 @@
 <?php
+    session_start();
+    if(!$_SESSION['admin']){
+        header("Location: index.php");
+    }
     require_once 'dbconnection.php';
+    
     $id = 0;
     $TopTitle = "新增";
     if(isset($_GET['id'])){

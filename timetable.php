@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!$_SESSION['admin']){
+        header("Location: index.php");
+        }
+?>
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -10,6 +16,8 @@
     <link rel="icon" type="image/x-icon" href="assets/pineapple.png">
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- jQuery -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css" type="text/css"/>
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -26,7 +34,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                         <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
+                        <?php echo '<li class="nav-item"><a class="nav-link" href="admin.php">你好, 管理員'.$_SESSION['name'].'</a></li>';?>
                         <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
                         <!-- <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                         <li class="nav-item dropdown">
@@ -49,20 +57,50 @@
         </nav>
         <!-- Header-->
         <header class="py-5">
-                <div class="container px-5">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 col-xxl-6">
-                            <div class="text-center my-5">
+            <section class="bg-light py-5">
+                <div class="container px-5 my-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder">編輯時刻表</h1>    
+                    </div>
+                    
+                    <div class="row gx-5 justify-content-center">
+                        <!-- 區塊1 -->
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card mb-5 mb-xl-0">
+                                <div class="card-body p-5">
+                                    
+                                    <div class="mb-3">
+                                        <span class="display-7 fw-normal">編輯</span>
+                                        
+                                    </div>
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="#">Go</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 區塊2 -->
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card mb-5 mb-xl-0">
+                                <div class="card-body p-5">
                                 
-                                <h1 class="fw-bolder mb-3">編輯時刻表</h1>
-                                <form id="dateRange" action="T_u.php" method="get">
-                                    <div class="mb-4">
+                                    <div class="mb-3">
+                                        <span class="display-7 fw-normal">發布</span>
+                                    </div>
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="#">Go</a> <!-- btn-primary 為實心色-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                                <!-- <form id="dateRange" action="T_u.php" method="get">
+                                    <div class="mb-4"> -->
                                         <!-- date range picker -->
-                                        <span class="fw-bold text-infos mb-4 me-auto ms-auto fs-7 my-auto ">新增日期</span>
+                                        <!-- <span class="fw-bold text-infos mb-4 me-auto ms-auto fs-7 my-auto ">新增日期</span>
                                         <input class="form-control readonly" type="text" placeholder="選擇日期"  id="Date" name="Date" style="text-align: center" required/>
                                     </div>
                                     <button class="btn btn-primary btn-lg" id = 'submitBtn' type="submit">新增</button>
-                                </form>
+                                </form> -->
                             </div>
                         </div>
                     </div>
@@ -93,14 +131,15 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" ></script>
     <script>
         $( function() {
-            $( "#Date" ).datepicker();
+            $( "#Date" ).datepicker({
+                    dateFormat : 'yy/mm/dd',
+                    minDate:0,    
+                }
+        );
         } );
         // $(function(){
         //     $("#Date").datepicker(
-        //         {
-        //             dateFormat : 'yy/mm/dd',
-        //             minDate:0,    
-        //         }
+        //         
         //     );
         // });
     </script>

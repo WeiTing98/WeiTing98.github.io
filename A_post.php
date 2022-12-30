@@ -1,8 +1,12 @@
 <?php
+    session_start();
+    if(!$_SESSION['admin']){
+        header("Location: index.php");
+    }
     require_once 'dbconnection.php';
     $title = $_POST['title'];
     $message = $_POST['message'];
-    $author = "管理員Y"; //登入帳號的名子
+    $author = $_SESSION['name']; //登入帳號的名子
     // echo $title.'<br>';
     // echo $message;
     //新增

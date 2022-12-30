@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!empty($_SESSION)){
+        header("Location: 'index.php'");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="zh-TW">
     <head>
@@ -72,8 +79,6 @@
                                         <input type="password"  name='password' class="form-control" id="pwd" placeholder="密碼" required />
                                         <label for="pwd">密碼</label>
                                         <a class="btn btn-secondary" id = "pwdtag">顯示密碼</a>
-                                        
-                                        <!-- <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div> -->
                                         <script>
                                             var p = document.getElementById("pwd");
                                             
@@ -84,6 +89,24 @@
                                                 }
                                                 else{
                                                     p.type = "password";
+                                                    this.innerText = "顯示密碼";
+                                                }
+                                            });                                            
+                                        </script>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="password"  name='passwordCheck' class="form-control" id="pwd1" placeholder="確認密碼" required />
+                                        <label for="pwd1">確認密碼</label>
+                                        <a class="btn btn-secondary" id = "pwdtag1">顯示密碼</a>
+                                        <script>
+                                            var p1 = document.getElementById("pwd1");
+                                            document.getElementById("pwdtag1").addEventListener("click",function(){
+                                                if (p1.type == "password"){
+                                                    p1.type = "text";
+                                                    this.innerText = "隱藏密碼";
+                                                }
+                                                else{
+                                                    p1.type = "password";
                                                     this.innerText = "顯示密碼";
                                                 }
                                             });
