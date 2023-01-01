@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `announcement` (
 
 -- 正在傾印表格  finalprojectdata.announcement 的資料：~7 rows (近似值)
 REPLACE INTO `announcement` (`index`, `title`, `date`, `content`, `img`, `author`, `lastedit`) VALUES
-	(15, '這是測試資料1', '2022-12-29 02:25:56', '這裡可以上傳公告，公告會顯示在首頁', '/final project website/change.png', '管理員Y', NULL),
+	(15, '這是測試資料1', '2023-01-01 04:22:19', '這裡可以上傳公告，公告會顯示在首頁', NULL, '管理員Y', '小美'),
 	(16, '測試資料2', '2022-12-30 02:21:13', '想新增上傳圖片的功能但還沒做<3ㄏㄏ\r\n', NULL, '管理員Y', NULL),
 	(17, '又是測試資料', '2022-12-29 02:26:56', '上次測試是在上次喔!!!!', NULL, '管理員Y', NULL),
 	(18, '晚餐吃甚麼啊??????', '2022-12-30 10:51:30', '晚餐吃晚餐阿==\r\n不然吃早餐嗎==\r\n==', NULL, '管理員Y', '小壯'),
@@ -78,16 +78,17 @@ REPLACE INTO `ticket record` (`index`, `account`, `price`, `bus date`, `timestam
 -- 傾印  資料表 finalprojectdata.timetable 結構
 CREATE TABLE IF NOT EXISTS `timetable` (
   `bus number` int(11) NOT NULL AUTO_INCREMENT,
-  `available` tinyint(4) NOT NULL DEFAULT 0,
+  `remain` int(11) NOT NULL DEFAULT 0,
   `date` date DEFAULT NULL,
   PRIMARY KEY (`bus number`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
--- 正在傾印表格  finalprojectdata.timetable 的資料：~3 rows (近似值)
-REPLACE INTO `timetable` (`bus number`, `available`, `date`) VALUES
-	(1, 0, '2022-12-30'),
-	(2, 1, '2023-01-06'),
-	(3, 1, '2023-01-13');
+-- 正在傾印表格  finalprojectdata.timetable 的資料：~4 rows (近似值)
+REPLACE INTO `timetable` (`bus number`, `remain`, `date`) VALUES
+	(1, 60, '2022-12-30'),
+	(2, 53, '2023-01-06'),
+	(3, 12, '2023-01-13'),
+	(4, 0, '2023-01-20');
 
 -- 傾印  資料表 finalprojectdata.user account 結構
 CREATE TABLE IF NOT EXISTS `user account` (
