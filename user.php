@@ -1,8 +1,5 @@
 <?php
     session_start();
-    if(empty($_SESSION)){
-        header("Location:index.php");
-    }
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -49,14 +46,14 @@
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
-                                <form id="loginForm" action="addaccount.php" method="post">
+                                <form id="loginForm" action="useredit.php" method="post">
                                     <!-- Email address input-->
                                     <div class="form-floating mb-3">
                                         <p class="fs-5"><?php echo '帳號: '.$_SESSION['id'];?></p>
                                     </div>
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
-                                        <input type="password"  name='Oldpassword' class="form-control" id="pwd2" placeholder="密碼" required />
+                                        <input type="password"  name='oldpassword' class="form-control" id="pwd2" placeholder="密碼" required />
                                         <label for="pwd2">原始密碼</label>
                                         <a class="btn btn-secondary" id = "pwdtag2">顯示密碼</a>
                                         <script>
@@ -76,7 +73,7 @@
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="password"  name='Newpassword' class="form-control" id="pwd" placeholder="密碼" required />
+                                        <input type="password"  name='newpassword' class="form-control" id="pwd" placeholder="密碼" required />
                                         <label for="pwd">變更密碼</label>
                                         <a class="btn btn-secondary" id = "pwdtag">顯示密碼</a>
                                         <script>
@@ -95,7 +92,7 @@
                                         </script>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="password"  name='passwordCheck' class="form-control" id="pwd1" placeholder="確認密碼" required />
+                                        <input type="password"  name='checkpassword' class="form-control" id="pwd1" placeholder="確認密碼" required />
                                         <label for="pwd1">確認密碼</label>
                                         <a class="btn btn-secondary" id = "pwdtag1">顯示密碼</a>
                                         <script>
