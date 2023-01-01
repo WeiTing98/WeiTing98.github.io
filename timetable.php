@@ -73,7 +73,7 @@
                                         <span class="display-7 fw-normal">編輯</span>
                                         
                                     </div>
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="#">Go</a></div>
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="timetable_edit.php">Go</a></div>
                                 </div>
                             </div>
                         </div>

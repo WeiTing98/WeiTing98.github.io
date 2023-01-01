@@ -65,7 +65,7 @@
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
                                 <h1 class="display-5 fw-bolder text-white mb-2">CCU高鐵接駁車票預約系統</h1>
-                                <p class="lead fw-normal text-white-50 mb-4">本網頁可以查詢班表、訂位狀態以及訂位</p>
+                                <p class="lead fw-normal text-white-50 mb-4">本網頁可以查詢班表、訂位狀態以及預約接駁車票</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                     <!-- <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#announce">公佈欄</a> -->
                                     <!-- <a class="btn btn-outline-light btn-lg px-4" href="#!">公告</a> -->

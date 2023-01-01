@@ -13,7 +13,7 @@
     }   
     $fd = date("Y-m-d",strtotime($from));
     $td = date("Y-m-d",strtotime($to));
-    $sqlanc = sprintf('SELECT * FROM `seat table` WHERE `date` BETWEEN \'%s\' AND \'%s\' ORDER BY `date`',$fd,$td);
+    $sqlanc = sprintf('SELECT * FROM `timetable` WHERE `date` BETWEEN \'%s\' AND \'%s\' ORDER BY `date`',$fd,$td);
     $data = $pdo->prepare($sqlanc);
     $data->execute();
     $item = $data->fetchAll();
@@ -83,17 +83,17 @@
                                         $c = 0;
                                         foreach($item as $i){
                                             if ($availableSeat){
-                                                if($i['available']==0){
+                                                if($i['remain']==0){
                                                     continue;
                                                 }
                                             }
                                             $c+=1;
-                                            $date = date("Y/m/d l",strtotime( $i['date']));
+                                            $date = date("Y/m/d D",strtotime( $i['date']));
                                             $state = "可預訂";
                                             $able = "";
-                                            if($i['available']==0){
+                                            if($i['remain']==0){
                                                 $state = "不可預訂";
-                                                $able = 'disabled';
+                                                $able = 'pointer-events: none;opacity:0.5';
                                             }
                                             echo "<div class='col-lg-6 col-xl-4'>
                                                 <div class='card mb-5 mb-xl-0'>
@@ -101,9 +101,9 @@
                                             echo "<div class='small text-uppercase fw-bold text-muted'>班次".$i['bus number']."</div>
                                             <div class='mb-3'>
                                                 <span class='display-6 fw-bold'>".$date."</span>
-                                                <span class='text-muted'>".$state."</span>
+                                                <span class='text-muted'>".$state.",剩餘".$i['remain']."個座位</span>
                                             </div>";
-                                            echo '<div class="d-grid"><a class="btn btn-outline-primary" href = "book.php?id='.$i['bus number'].'" id = "'.$i['bus number'],'"'.$able.' >'.$state.'</a></div>';
+                                            echo '<div class="d-grid"><a class="btn btn-outline-primary dis" href = "book.php?id='.$i['bus number'].'" id = "'.$i['bus number'],'" style="'.$able. '" >'.$state.'</a></div>';
                                             echo '</div></div></div>';
                                         }
                                         if($c == 0){
@@ -137,11 +137,12 @@
                         <span class="text-white mx-1">&middot;</span>
                         <a class="link-light small" href="#!">Terms</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
+                        <a class="link-light small" href="#">Contact</a>
                     </div>
                 </div>
             </div>
         </footer>
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

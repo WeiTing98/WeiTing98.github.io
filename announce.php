@@ -25,6 +25,8 @@
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css" type="text/css"/>
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" type="text/css"/>
     </head>
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
@@ -50,13 +52,15 @@
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-10 col-xl-7">
                             <div class="text-center">
-                                <span class='fw-bold display-6 mb-5'>公佈欄</span>
+                                <span class='fw-bold display-6 mb-5 '>公佈欄</span>
                                 <div class="fs-4 mb-4 ">
                                 <br>
                                 <a href="A_edit.php?id=-1" class="fs-2">新增公告</a>
                                 <br>
                                 <hr size='5px' width="100%">
-                                <?php
+
+                                </table>
+                                 <?php
                                 if(count( $item)==0){
                                     echo '<div class="fs-1 text-center">無公告資料</br>';
                                 }
@@ -79,6 +83,7 @@
                     </div>
                 </div>
             </div>
+            
         </main>
         <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">
@@ -97,13 +102,6 @@
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <!-- <script src="js/scripts.js"></script> -->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
         <!-- jQuery -->
     <script
         src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -111,6 +109,8 @@
         crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" ></script>
+
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script>
         function del(s){
             if(confirm("確定要刪除此筆公告?")==true){
