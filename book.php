@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(empty($_SESSION)){
+        echo '<script>alert("請先登入!");location.href = "searching.php";</script>';
+    }
 ?>
 
 <!DOCTYPE html>
