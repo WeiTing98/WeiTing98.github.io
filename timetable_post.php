@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css" type="text/css"/>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet">
+    <!-- time picker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     <!-- drow table css  -->
     <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" type="text/css"/> -->
 </head>
@@ -48,30 +50,47 @@
         </nav>
         <!-- Header-->
         <header class="py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-11 col-xl-10">
-                    <div class="fs-3 text-center">
-                        <h1>發布時刻表</h1> <br>
-                            <form action="timetable_postctrl" method="post">
-                                <div class="input-group input-group-lg">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-lg">選擇日期</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="選擇發車日期" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                                <div class="input-group input-group-lg">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-lg">輸入座位數</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="輸入座位數" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </form>
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-xxl-6">
+                            <div class="text-center my-5">
+                                
+                                <h1 class="fw-bolder mb-3">發布時刻表</h1>
+                                <form id="timetable" action="timetable_postctrl.php" method="post">
+                                    <div class="input-group input-group-lg mb-4">
+                                        <span class="input-group-text">班次號碼</span>
+                                        <input class="form-control readonly"  type="text" placeholder="輸入班次號碼"  id="busnum" name="timetogo" style="text-align: center;" autocomplete="off" required/>
+                                        </div> 
+                                    <div class="input-group input-group-lg mb-4">
+                                        <!-- date range picker -->
+                                        <span class="input-group-text">發車日期時間</span>
+                                        <input class="form-control readonly" type="text" placeholder="選擇發車日期"  id="departureTime" name="departure" style="text-align: center" autocomplete="off" required/>
+                                    </div>    
+                                    <div class="input-group input-group-lg mb-4">
+                                        <span class="input-group-text">發車時間</span>
+                                        <input class="form-control readonly"  type="text" placeholder="輸入座位數"  id="timetogo" name="timetogo" style="text-align: center;" autocomplete="off" required/>
+                                        </div> 
+                                    <div class="input-group input-group-lg mb-4">
+                                        <span class="input-group-text">人數</span>
+                                        <input class="form-control readonly"  type="text" placeholder="輸入座位數"  id="seat" name="seat" style="text-align: center;" autocomplete="off" required/>
+                                        </div> 
+                                    <div class="input-group input-group-lg mb-4">
+                                        <span class="input-group-text">目的地</span>
+                                        <select form="timetable" name="dst" id="dst" class="form-select" aria-label="Default select example">
+                                            <option value="嘉義高鐵站">嘉義高鐵站</option>
+                                            <option value="民雄高鐵站">雲林高鐵站</option>
+                                        </select></td></tr> 
+                                        </div>
+                                    
+                                    <button class="btn btn-primary btn-lg" id = 'submitBtn' type="submit">發布</button>
+                                </form>
+                               
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        </header>
+            </header>
+        
         
     </main>
     <!-- Footer-->
@@ -95,10 +114,26 @@
     <script src="js/scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" ></script>
+    <!-- timepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
     <!-- draw table JS -->
     <!-- <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script> -->
     <script>
-        
+        $("#departure").datepicker({
+            dateFormat : "yy/m/d",
+            minDate:0,
+        })
+        $('#timetogo').timepicker({
+            timeFormat: 'H:mm',
+            // interval: 60,
+            minTime: '0',
+            maxTime: '23:59',
+            defaultTime: '12',
+            startTime: '0:00',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+        });
     </script>
 </body>
 </html>

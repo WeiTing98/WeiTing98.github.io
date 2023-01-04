@@ -88,7 +88,7 @@
                                                 }
                                             }
                                             $c+=1;
-                                            $date = date("Y/m/d D",strtotime( $i['date']));
+                                            $date = date("Y/m/d D H:i",strtotime( $i['date']));
                                             $state = "可預訂";
                                             $s = "預定";
                                             $able = "";
@@ -97,12 +97,19 @@
                                                 $s = "不可預定";
                                                 $able = 'pointer-events: none;opacity:0.5';
                                             }
+                                            if($i['dst']=="嘉義高鐵站"){
+                                                $color = 'rgb(22, 176, 9)';
+                                            }
+                                            else $color = '	#436EEE';
                                             echo "<div class='col-lg-6 col-xl-4'>
                                                 <div class='card mb-5 mb-xl-0'>
                                                 <div class='card-body p-5'>";
                                             echo "<div class='small text-uppercase fw-bold text-muted'>班次".$i['bus number']."</div>
                                             <div class='mb-3'>
                                                 <span class='display-6 fw-bold'>".$date."</span>
+                                                <br>
+                                                <span class='display-8 fw-bold' style='color:".$color.";'>Dst. ".$i['dst']."</span>
+                                                <br>
                                                 <span class='text-muted'>".$state.",剩餘".$i['remain']."個座位</span>
                                             </div>";
                                             echo '<div class="d-grid"><a class="btn btn-outline-primary dis" href = "javascript: booking('.$i['bus number'].')" id = "'.$i['bus number'],'" style="'.$able. '" >'.$s.'</a></div>';

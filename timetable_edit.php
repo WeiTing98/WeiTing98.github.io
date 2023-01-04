@@ -57,16 +57,22 @@
                         <thead>
                             <tr>
                                 <th>班次</th>
-                                <th>日期</th>
+                                <th>日期/時間</th>
                                 <th>剩餘座位</th>
+                                <th>目的地</th>
                                 <th>控制</th> 
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
                                 foreach($item as $i){
+                                    if($i['dst']=="嘉義高鐵站"){
+                                        $color = 'rgb(22, 176, 9)';
+                                    }
+                                    else $color = '	#436EEE';
                                     echo "<tr>";
                                     echo "<td>".$i['bus number']."</td><td>".$i['date']."</td><td>".$i['remain']."</td>";
+                                    echo "<td style='color:".$color.";'>".$i['dst']."</td>";
                                     echo "<td><a id = '".$i['bus number']."' href='timetable_update.php?id=".$i['bus number']."'>編輯</a>/<a href='javascript: del(".$i['bus number'].")'>刪除</a></td>";
                                     echo "</tr>";
                                 }

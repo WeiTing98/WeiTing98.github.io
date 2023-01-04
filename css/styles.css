@@ -569,6 +569,17 @@ progress {
   }
 }
 
+.display-8 {
+  font-size: calc(1rem + 1.35vw);
+  font-weight: 300;
+  line-height: 1.2;
+}
+@media (min-width: 1200px) {
+  .display-8 {
+    font-size: 2rem;
+  }
+}
+
 .list-unstyled {
   padding-left: 0;
   list-style: none;
