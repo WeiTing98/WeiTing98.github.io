@@ -48,7 +48,7 @@
                                 if($_SESSION['admin']){
                                     echo '<li class="nav-item"><a class="nav-link" href="admin.php">你好, 管理員'.$_SESSION['name'].'</a></li>';
                                 }else{
-                                    echo '<li class="nav-item"><a class="nav-link" href="user.php">你好, '.$_SESSION['name'].'</a></li>';
+                                    echo '<li class="nav-item"><a class="nav-link" href="userhome.php">你好, '.$_SESSION['name'].'</a></li>';
                                 }
                                 echo '<li class="nav-item"><a class="nav-link" href="logout.php">登出</a></li>';
                             }
@@ -80,7 +80,7 @@
             <div class="py-5 bg-light" id="announce">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-10 col-xl-7">
+                        <div class="col-lg-11 col-xl-11">
                             <div class="text-center">
                                 <span class='fw-bold display-6 mb-5'>公佈欄</span>
                                 <div class="fs-4 mb-4 ">

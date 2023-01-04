@@ -17,7 +17,7 @@ if ($id != "" && $password != "") {
     $total_records = mysqli_num_rows($result);
     $user = mysqli_fetch_row($result);
     if ($total_records > 0) {
-        $_SESSION['id'] = $user[0];
+        $_SESSION['id'] = $user[0]; //account
         $_SESSION['name'] = $user[1];
         $_SESSION["login_session"] = true;
         $_SESSION['phone'] = $user[2];
@@ -34,8 +34,7 @@ if ($id != "" && $password != "") {
         echo "<center><font color='red'>";
         echo "<script>alert('使用者名稱或密碼錯誤!');location.href='login.php';</script>";
         echo "</font>";
-        $_SESSION["login_session"] = false;
-        
+        // $_SESSION["login_session"] = false;
     }
     // echo $_SESSION['name'];
     // echo $_SESSION['id'];

@@ -51,8 +51,8 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                             <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
-                            <li class="nav-item"><a class="nav-link" href="login.php">登入</a></li>
-                            <!-- <li class="nav-item"><a class="nav-link" href="ticket.php">訂票</a></li> -->
+                            <?php echo '<li class="nav-item"><a class="nav-link" href="admin.php">你好, 管理員'.$_SESSION['name'].'</a></li>';?>
+                            <li class="nav-item"><a class="nav-link" href="logout.php">登出</a></li>
                         </ul>
                     </div>
                 </div>
@@ -132,8 +132,8 @@
                             <p class="text-muted mb-0">Call us during normal business hours at (555) 892-9403.</p>
                         </div>
                     </div> -->
-                <!-- </div>
-            </section> -->
+                <!-- </div>-->
+            </section>
         </main>
         <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">

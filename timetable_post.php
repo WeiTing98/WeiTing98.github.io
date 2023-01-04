@@ -28,7 +28,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet">
     <!-- drow table css  -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" type="text/css"/>
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" type="text/css"/> -->
 </head>
 <body class="d-flex flex-column">
     <main class="flex-shrink-0">
@@ -51,30 +51,23 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-11 col-xl-10">
-                    <div class="fs-3 text-center">時刻表</div>
-                    <table id="ShowTimetable" class="display ">
-                
-                        <thead>
-                            <tr>
-                                <th>班次</th>
-                                <th>日期</th>
-                                <th>剩餘座位</th>
-                                <th>控制</th> 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                                foreach($item as $i){
-                                    echo "<tr>";
-                                    echo "<td>".$i['bus number']."</td><td>".$i['date']."</td><td>".$i['remain']."</td>";
-                                    echo "<td><a id = '".$i['bus number']."' href='timetable_update.php?id=".$i['bus number']."'>編輯</a>/<a href='javascript: del(".$i['bus number'].")'>刪除</a></td>";
-                                    echo "</tr>";
-                                }
-                
-                            ?>
-                        </tbody>
-
-                    </table>
+                    <div class="fs-3 text-center">
+                        <h1>發布時刻表</h1> <br>
+                            <form action="timetable_postctrl" method="post">
+                                <div class="input-group input-group-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-lg">選擇日期</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="選擇發車日期" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-lg">輸入座位數</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="輸入座位數" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                            </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,16 +96,9 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" ></script>
     <!-- draw table JS -->
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script> -->
     <script>
-        $(document).ready( function () {
-            $('#ShowTimetable').DataTable();
-        } );
-        function del(s){
-            if(confirm("確定要刪除此筆車次資料?")==true){
-                location.href = "timetable_del.php?id="+s;
-            }
-        }
+        
     </script>
 </body>
 </html>

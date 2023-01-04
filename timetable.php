@@ -70,7 +70,7 @@
                                 <div class="card-body p-5">
                                     
                                     <div class="mb-3">
-                                        <span class="display-7 fw-normal">編輯</span>
+                                        <span class="display-7 fw-normal">編輯/查看</span>
                                         
                                     </div>
                                     <div class="d-grid"><a class="btn btn-outline-primary" href="timetable_edit.php">Go</a></div>
@@ -85,7 +85,7 @@
                                     <div class="mb-3">
                                         <span class="display-7 fw-normal">發布</span>
                                     </div>
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="#">Go</a> <!-- btn-primary 為實心色-->
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="timetable_post.php">Go</a> <!-- btn-primary 為實心色-->
                                     </div>
                                 </div>
                             </div>

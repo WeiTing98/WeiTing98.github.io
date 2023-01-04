@@ -38,7 +38,7 @@
                                 if($_SESSION['admin']){
                                     echo '<li class="nav-item"><a class="nav-link" href="admin.php">你好, 管理員'.$_SESSION['name'].'</a></li>';
                                 }else{
-                                    echo '<li class="nav-item"><a class="nav-link" href="user.php">你好, '.$_SESSION['name'].'</a></li>';
+                                    echo '<li class="nav-item"><a class="nav-link" href="userhome.php">你好, '.$_SESSION['name'].'</a></li>';
                                 }
                                 echo '<li class="nav-item"><a class="nav-link" href="logout.php">登出</a></li>';
                             }
@@ -73,15 +73,23 @@
                                 
                                 <h1 class="fw-bolder mb-3">時刻表查詢</h1>
                                 <form id="dateRange" action="ticket.php" method="get">
-                                    <div class="mb-4">
+                                    <div class="input-group input-group-lg mb-4">
                                         <!-- date range picker -->
-                                        <span class="fw-bold text-infos mb-4 me-auto ms-auto fs-7 my-auto ">From:</span>
-                                        <input class="form-control readonly" type="text" placeholder="選擇起始日期"  id="FromDate" name="FromDate" style="text-align: center" required/>
-                                        <span class="fw-bold text-infos mb-4 me-auto ms-auto fs-7 my-auto ">To:</span>
-                                        <input class="form-control readonly"  type="text" placeholder="選擇結束日期"  id="ToDate" name="ToDate" style="text-align: center;" required/>
-                                    </div>
+                                        <span class="input-group-text">From:</span>
+                                        <input class="form-control readonly" type="text" placeholder="選擇起始日期"  id="FromDate" name="FromDate" style="text-align: center" autocomplete="off" required/>
+                                    </div>    
+                                    <div class="input-group input-group-lg mb-4">
+                                        <span class="input-group-text">To:</span>
+                                        <input class="form-control readonly"  type="text" placeholder="選擇結束日期"  id="ToDate" name="ToDate" style="text-align: center;" autocomplete="off" required/>
+                                        </div> 
                                     <!-- <p class="lead fw-normal text-muted mb-4">Start Bootstrap was built on the idea that quality, functional website templates and themes should be available to everyone. Use our open source, free products, or support us by purchasing one of our premium products or services.</p> -->
-                                    <input class="btn" name="checkSeat" type="checkbox" id="checkSeat" value="Yes">仍有空位<br><br>
+                                    
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="checkSeat" type="checkbox"  value="Yes" id="checkSeat">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        仍有空位
+                                    </label>
+                                    </div>
                                     <button class="btn btn-primary btn-lg" id = 'submitBtn' type="submit">查詢</button>
                                 </form>
                                 <!-- this is for checking -->
@@ -212,17 +220,6 @@
                 return date;
             }
         });
-
-        // $('#summitBtn').on('click',function(){
-        //     sendForm();
-        // });
-
-        // function sendForm(){
-            
-        // }
-
-
-
     </script>
     </body>
 </html>

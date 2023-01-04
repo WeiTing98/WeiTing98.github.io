@@ -1,8 +1,12 @@
 <?php
     session_start();
-    if(empty($_SESSION)){
-        header("location:index.php");
-    }
+    require_once 'dbconnection.php';
+
+    $sql = 'SELECT * FROM `ticket record` WHERE `account`=:account';
+    $sth = $pdo->prepare($sql);
+    $sth->bindParam(":account",$_SESSION['id']);
+    $sth->execute();
+    $ticketHistory = $sth->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +38,6 @@
                             <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                             <li class="nav-item"><a class="nav-link" href="searching.php">查詢</a></li>
                             <?php echo '<li class="nav-item"><a class="nav-link" href="userhome.php">你好,'.$_SESSION['name'].'</a></li>';?>
-                            <li class="nav-item"><a class="nav-link" href="logout.php">登出</a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,45 +46,40 @@
             <section class=" py-5">
                 <div class="container px-5 my-5">
                     <div class="text-center mb-5">
-                        <h1 class="fw-bolder">選擇控制項</h1>    
+                        <h1 class="fw-bolder">您好<?php echo $_SESSION['name']?>,以下是您的訂票紀錄</h1>    
                     </div>
                     <div class="row gx-5 justify-content-center">
-                        <!-- 區塊1 -->
-                        <div class="col-lg-6 col-xl-4">
-                            <div class="card mb-5 mb-xl-0">
-                                <div class="card-body p-5">
-                                    
-                                    <div class="mb-3">
-                                        <span class="display-7 fw-normal">修改帳號資料</span>
-                                        
-                                    </div>
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="user.php">Go</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 區塊2 -->
-                        <div class="col-lg-6 col-xl-4">
-                            <div class="card mb-5 mb-xl-0">
-                                <div class="card-body p-5">
-                                    <div class="mb-3">
-                                        <span class="display-7 fw-normal">我的訂票紀錄</span>
-                                    </div>
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="myHistory.php">Go</a> <!-- btn-primary 為實心色-->
-                                       </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-4">
-                            <div class="card mb-5 mb-xl-0">
-                                <div class="card-body p-5">
-                                    <div class="mb-3">
-                                        <span class="display-7 fw-normal">我的車票</span>
-                                    </div>
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="myBooking.php">Go</a> <!-- btn-primary 為實心色-->
-                                       </div>
-                                </div>
-                            </div>
-                        </div>
+                        <table id="HistoryTable" class="display table table-light">
+                            <thead>
+                                <tr>
+                                    <th>班次</th>
+                                    <th>日期</th>
+                                    <th>訂位時間</th>
+                                    <th>價格</th>
+                                    <th>付款狀態</th>
+                                    <th>是否退票</th>
+                                </tr>
+                            </thead> 
+                            <tbody>
+                                <?php 
+                                    foreach($ticketHistory as $his){
+                                        if(strtotime(date('Y-m-d'))>strtotime($his['bus date']) ){
+                                            echo "<tr class='table-light'>";
+                                            echo "<td class='table-light'>".$his['bus number']."</td>";
+                                            echo "<td class='table-light'>".$his['bus date']."</td>";
+                                            echo "<td class='table-light'>".$his['timestamp']."</td>";
+                                            echo "<td class='table-light'>".$his['price']."</td>";
+                                            if($his['state']==1) echo "<td class='table-light'>已付款</td>";
+                                            else echo "<td class='table-light'>未付款</td>";
+                                            if($his['refunded']==1) echo "<td class='table-light'>已退票</td>";
+                                            else echo "<td class='table-light'>無</td>";
+                                            echo "</tr>";   
+                                        }
+                                    }
+                    
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
@@ -105,11 +103,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <!-- <script src="js/scripts.js"></script> -->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
         <!-- jQuery -->
     <script
         src="https://code.jquery.com/jquery-3.6.1.min.js"

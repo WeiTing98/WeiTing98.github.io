@@ -86,9 +86,19 @@
                             <div class="card mb-5 mb-xl-0">
                                 <div class="card-body p-5">
                                     <div class="mb-3">
-                                        <span class="display-7 fw-normal">編輯時刻表</span>
+                                        <span class="display-7 fw-normal">編輯/查看時刻表</span>
                                     </div>
                                     <div class="d-grid"><a class="btn btn-outline-primary" href="timetable.php">Go</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card mb-5 mb-xl-0">
+                                <div class="card-body p-5">
+                                    <div class="mb-3">
+                                        <span class="display-7 fw-normal">查看班次資料</span>
+                                    </div>
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="ticket_view.php">Go</a></div>
                                 </div>
                             </div>
                         </div>

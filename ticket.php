@@ -53,7 +53,7 @@
                                 if($_SESSION['admin']){
                                     echo '<li class="nav-item"><a class="nav-link" href="admin.php">你好, 管理員'.$_SESSION['name'].'</a></li>';
                                 }else{
-                                    echo '<li class="nav-item"><a class="nav-link" href="user.php">你好, '.$_SESSION['name'].'</a></li>';
+                                    echo '<li class="nav-item"><a class="nav-link" href="userhome.php">你好, '.$_SESSION['name'].'</a></li>';
                                 }
                                 echo '<li class="nav-item"><a class="nav-link" href="logout.php">登出</a></li>';
                             }
@@ -90,9 +90,11 @@
                                             $c+=1;
                                             $date = date("Y/m/d D",strtotime( $i['date']));
                                             $state = "可預訂";
+                                            $s = "預定";
                                             $able = "";
                                             if($i['remain']==0){
                                                 $state = "不可預訂";
+                                                $s = "不可預定";
                                                 $able = 'pointer-events: none;opacity:0.5';
                                             }
                                             echo "<div class='col-lg-6 col-xl-4'>
@@ -103,7 +105,7 @@
                                                 <span class='display-6 fw-bold'>".$date."</span>
                                                 <span class='text-muted'>".$state.",剩餘".$i['remain']."個座位</span>
                                             </div>";
-                                            echo '<div class="d-grid"><a class="btn btn-outline-primary dis" href = "book.php?id='.$i['bus number'].'" id = "'.$i['bus number'],'" style="'.$able. '" >'.$state.'</a></div>';
+                                            echo '<div class="d-grid"><a class="btn btn-outline-primary dis" href = "javascript: booking('.$i['bus number'].')" id = "'.$i['bus number'],'" style="'.$able. '" >'.$s.'</a></div>';
                                             echo '</div></div></div>';
                                         }
                                         if($c == 0){
@@ -147,5 +149,11 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            function booking(bus){
+                if(confirm("確定要預訂本車次嗎?"))
+                    location.href="book.php?id="+bus;
+            }
+        </script>
     </body>
 </html>
