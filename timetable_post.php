@@ -119,7 +119,7 @@
     <!-- draw table JS -->
     <!-- <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script> -->
     <script>
-        $("#departure").datepicker({
+        $("#departureTime").datepicker({
             dateFormat : "yy/m/d",
             minDate:0,
         })

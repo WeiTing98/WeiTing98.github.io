@@ -16,6 +16,9 @@ $item = $sth->fetch();
 //var_dump($item);
 $remain = $item['remain'] - 1;
 $busdata = $item["date"];
+$bustime = $item['time'];
+$dst = $item['dst'];
+$busnum = $item['bus number'];
 //var_dump($remain);
 $SQL = 'UPDATE `timetable` SET `remain` = :remain WHERE `bus number` = :id ';
 $STH = $pdo->prepare($SQL);
@@ -28,10 +31,12 @@ $applyrefund = 0;
 $refunded = 0;
 # 設定時區
 date_default_timezone_set('Asia/Taipei');
-$SQL = 'INSERT INTO `ticket record` (`account`, `price`, `bus date`, `bus number` , ,`timestamp`, `state`, `applyrefund`, `refunded`) 
-VALUES ( :account, :price , :busdata , NOW() , :state , :applyrefund, :refunded )';
+$SQL = 'INSERT INTO `ticket record` (`account`, `price`, `bus date`, `bus time` ,`bus number`  ,`timestamp`, `state`, `applyrefund`, `refunded`,`dst`) 
+VALUES ( :account, :price , :busdata ,:bustime , :busnum , NOW() , :state , :applyrefund, :refunded ,:dst)';
 $STH = $pdo->prepare($SQL);
-$STH->bindParam();
+$STH->bindParam(':bustime',$bustime);
+$STH->bindParam(':busnum',$busnum);
+$STH->bindParam(':dst',$dst);
 $STH->bindParam(':account',$_SESSION["id"]);
 $STH->bindParam(':price',$price);
 $STH->bindParam(':busdata',$busdata);
