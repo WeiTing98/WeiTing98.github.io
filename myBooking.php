@@ -46,16 +46,19 @@
             <section class=" py-5">
                 <div class="container px-5 my-5">
                     <div class="text-center mb-5">
-                        <h1 class="fw-bolder">時刻表如下</h1>    
+                        <h1 class="fw-bolder">已預定班次如下</h1>    
                     </div>
                     <div class="row gx-5 justify-content-center">
                         <table id="HistoryTable" class="display table table-light">
                             <thead>
                                 <tr>
                                     <th>班次</th>
-                                    <th>日期</th>
+                                    <th>日期/時間</th>
+                                    <th>下單時間</th>
                                     <th>價格</th>
-                                
+                                    <th>付款狀態</th>
+                                    <th>是否退票</th>
+                                    <th>車票</th>
                                 </tr>
                             </thead> 
                             <tbody>
@@ -63,17 +66,19 @@
                                     foreach($ticketHistory as $his){
                                         echo "<tr class='table-light'>";
                                         echo "<td class='table-light'>".$his['bus number']."</td>";
-                                        echo "<td class='table-light'>".$his['bus date']."</td>";
+                                        echo "<td class='table-light'>".$his['bus date']."/".date('H:i',strtotime($his['bus time'])) ."</td>";
                                         echo "<td class='table-light'>".$his['timestamp']."</td>";
                                         echo "<td class='table-light'>".$his['price']."</td>";
                                         if($his['state']==1) echo "<td class='table-light'>已付款</td>";
                                         else echo "<td class='table-light'>未付款</td>";
                                         if($his['refunded']==1) echo "<td class='table-light'>已退票</td>";
                                         else echo "<td class='table-light'>無</td>";
-                                        echo "</tr>";   
+                                        echo  '<td class="table-light"><a href="ticketvisualize/dist/e_ticket.php?serial='.$his['serial'].'">車票</a>';
+                                        echo "</tr>";
                                     }
                     
                                 ?>
+                                
                             </tbody>
                         </table>
                     </div>

@@ -59,17 +59,17 @@
                             </div>
                         </div>
                         <!-- 區塊2 -->
-                        <div class="col-lg-6 col-xl-4">
+                        <!-- <div class="col-lg-6 col-xl-4">
                             <div class="card mb-5 mb-xl-0">
                                 <div class="card-body p-5">
                                 
                                     <div class="mb-3">
                                         <span class="display-7 fw-normal">修改使用者資料</span>
                                     </div>
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="user.php">Go</a> <!-- btn-primary 為實心色--></div>
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="user.php">Go</a>btn-primary 為實心色--><!--</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- 區塊3 -->
                         <div class="col-lg-6 col-xl-4">
                             <div class="card mb-5 mb-xl-0">
@@ -99,6 +99,16 @@
                                         <span class="display-7 fw-normal">查看班次資料</span>
                                     </div>
                                     <div class="d-grid"><a class="btn btn-outline-primary" href="ticket_view.php">Go</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card mb-5 mb-xl-0">
+                                <div class="card-body p-5">
+                                    <div class="mb-3">
+                                        <span class="display-7 fw-normal">一般使用者頁面</span>
+                                    </div>
+                                    <div class="d-grid"><a class="btn btn-outline-primary" href="userhome.php">Go</a></div>
                                 </div>
                             </div>
                         </div>
