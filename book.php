@@ -28,9 +28,10 @@ $applyrefund = 0;
 $refunded = 0;
 # 設定時區
 date_default_timezone_set('Asia/Taipei');
-$SQL = 'INSERT INTO `ticket record` (`account`, `price`, `bus date`, `timestamp`, `state`, `applyrefund`, `refunded`) 
+$SQL = 'INSERT INTO `ticket record` (`account`, `price`, `bus date`, `bus number` , ,`timestamp`, `state`, `applyrefund`, `refunded`) 
 VALUES ( :account, :price , :busdata , NOW() , :state , :applyrefund, :refunded )';
 $STH = $pdo->prepare($SQL);
+$STH->bindParam();
 $STH->bindParam(':account',$_SESSION["id"]);
 $STH->bindParam(':price',$price);
 $STH->bindParam(':busdata',$busdata);
